@@ -28,17 +28,14 @@
                         <b-form-group class="mb-3 ml-5 pl-5">
                             <b-form-label>
                                 Email
-                            
-                            </b-form-label>
+                             </b-form-label>
                             <b-form-input
                                 placeholder="Goodywlson1@outlook.com"
                                 type="email"
                                 class="form__input"
-                               
                             />
                             <b-form-invalid-feedback
                                 id="email-feedback"
-                                
                             >
                             <ul class="m-0 pl-3 list-unstyled">
                                <li>
@@ -55,7 +52,6 @@
                                 placeholder="***********"
                                 type="password"
                                 class="form__input"
-                                 
                             />
                             <div class="input_addon" >
                                     <b-icon v-if="showPassword" icon="eye" aria-hidden="true" />
@@ -63,12 +59,10 @@
                             </div> 
                             <b-form-invalid-feedback
                                 id="email-feedback"
-                                
                             >
                             <ul class="m-0 pl-3 list-unstyled">
                                 <li 
                                     class="py-1"
-                                    
                                 >
                                     password is required
                                 </li>
@@ -82,13 +76,11 @@
                                 <b-button
                                   variant="light"
                                   class="m-3"
-                                  
                                 >
                                 <img class="login__form-social" src="@/assets/icons/google 1.svg" />
                                 </b-button>
 
-                                <b-button
-                                   
+                                <b-button  
                                    variant="light"
                                    class="m-3 "
                                 >
@@ -142,13 +134,7 @@
 //import { required, email } from '@vuelidate/validators'
 export default {
     name: "Login",
-    
-    
-    data: () => ({
-        
-       
-    }),
-   
+
     
 }
     

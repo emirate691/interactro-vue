@@ -7,12 +7,8 @@
     </b-container>
 </template>
 <script>
-//import Register from '../components/auth/Register.vue';
-//import Navbar from '../components/Navbar.vue';
-//import Footer from '../components/Footer.vue';
-import Login from '../components/auth/Login.vue';
-//import Register from '../components/auth/Register.vue';
 
+import Login from '../components/auth/Login.vue';
 export default {
     name: "Home",
     components: { Login },
