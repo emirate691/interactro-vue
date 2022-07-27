@@ -33,6 +33,7 @@
                                 placeholder="Goodywlson1@outlook.com"
                                 type="email"
                                 class="form__input"
+                                 
                             />
                             <b-form-invalid-feedback
                                 id="email-feedback"
@@ -134,6 +135,9 @@
 //import { required, email } from '@vuelidate/validators'
 export default {
     name: "Login",
+    data : () => ({
+        submitting : false
+    })
 
     
 }
@@ -198,6 +202,8 @@ export default {
                 border-radius: 15px;
 ;
             }
+            
         }
+        
     }
 </style>

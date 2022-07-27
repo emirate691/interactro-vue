@@ -5,6 +5,8 @@ import Register from '@/components/auth/Register.vue'
 import Login from '@/components/auth/Login.vue'
 import EmailVerified from'@/views/EmailVerified.vue'
 import Emailreset from'@/views/Emailreset.vue'
+import EngagementType from'@/views/EngagementType.vue'
+
 
 Vue.use(VueRouter)
 
@@ -34,7 +36,12 @@ const routes = [
     path:'/emailreset',
     name: 'emailreset',
     component: Emailreset
-  }
+  },
+  {
+    path:'/engagementType',
+    name: 'engagementType',
+    component: EngagementType
+  },
   
  
    
