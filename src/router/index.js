@@ -6,6 +6,7 @@ import Login from '@/components/auth/Login.vue'
 import EmailVerified from'@/views/EmailVerified.vue'
 import Emailreset from'@/views/Emailreset.vue'
 import EngagementType from'@/views/EngagementType.vue'
+import QuizType from '@/views/QuizType.vue'
 
 
 Vue.use(VueRouter)
@@ -41,6 +42,12 @@ const routes = [
     path:'/engagementType',
     name: 'engagementType',
     component: EngagementType
+  },
+
+  {
+    path:'/quizType',
+    name: 'quizType',
+    component: QuizType
   },
   
  
