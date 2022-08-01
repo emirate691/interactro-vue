@@ -118,6 +118,7 @@
                                     <b-link href="/register" class="text-recovery">
                                         Sign up!
                                     </b-link>
+                                    
                             </small>
                        </div>
                     </b-form>

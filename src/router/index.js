@@ -7,6 +7,8 @@ import EmailVerified from'@/views/EmailVerified.vue'
 import Emailreset from'@/views/Emailreset.vue'
 import EngagementType from'@/views/EngagementType.vue'
 import QuizType from '@/views/QuizType.vue'
+import Dashboard from '@/views/Dashboard.vue'
+import Template from '@/views/Template.vue'
 
 
 Vue.use(VueRouter)
@@ -48,6 +50,17 @@ const routes = [
     path:'/quizType',
     name: 'quizType',
     component: QuizType
+  },
+  
+  {
+    path:'/dashboard',
+    name: 'dashboard',
+    component: Dashboard
+  },
+  {
+    path:'/template',
+    name: 'template',
+    component: Template
   },
   
  

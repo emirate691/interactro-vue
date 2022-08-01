@@ -1,7 +1,7 @@
 <template>
     <b-container fluid>
         <b-row class="email__verified d-flex  justify-content-center align-items-center vh-100">
-            <b-col class=" email__verified-main col-xs-12 col-md-9 col-xl-5  vh-100 d-flex flex-column justify-content-center align-items-center">
+            <b-col class=" email__verified-main col-xs-12 col-md-9 col-xl-5 vh-100 d-flex flex-column justify-content-center align-items-center">
                 <div class="d-flex justify-content-start">
                     <div class="text-center">
                         <img src="@/assets/images/Interactro Logo main 1.png"  height="70px"/>
