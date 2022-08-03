@@ -18,7 +18,8 @@
           <b-col class="col-6">
             <b-form-group>
               <b-form-input
-              class="w-50 "
+              class="w-50"
+              v-model="search"
               placeholder="Search"
               
               >
@@ -31,7 +32,7 @@
         <div class="white__bg mx-5 mb-5">
           <b-row>
             <b-col class="m-3 pl-5">
-              <h3>adex</h3>
+              <h3>{{quizes.title}}</h3>
               <span class="">
                 <span class="untitle_quiz_icon p-2"><img class="mx-2" src="@/assets/icons/untitle_quiz_icon.png">Personal</span>  
                 <span class="mx-2">created</span> 
@@ -160,21 +161,11 @@
   export default {
     data() {
       return {
+        quizes:[
+          {title:'untitle' , descrition:'quiz'}
+        ],
+        search:''
         
-        totalRows: 1,
-        currentPage: 1,
-        perPage: 5,
-        pageOptions: [5, 10, 15, { value: 100, text: "Show a lot" }],
-        sortBy: '',
-        sortDesc: false,
-        sortDirection: 'asc',
-        filter: null,
-        filterOn: [],
-        infoModal: {
-          id: 'info-modal',
-          title: '',
-          content: ''
-        }
       }
     },
     computed: {

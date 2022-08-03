@@ -62,25 +62,26 @@
                             </b-dropdown>
                 
                         </div>
-                        <div class="mt-5 pt-5">
-                            <b-row>
-                                <b-col class="col-6">
-                                    <div class="how_much">
-                                        <h4 class="p-5">How much do you know about history?</h4>
+                        <div class="p-5">
+                            <b-row class="justify-content-center align-items-center text-center"> 
+                                <b-col class="">
+                                    <div class="how_much text-center mt-3">
+                                        <h6 class="how_much_header">How much do you know about history?</h6>
                                         <img class="" src="@/assets/images/warrior.png">
-                                        <p>brainy history fan we bet you'll know about all the coolest bits! Test your trivia now!</p>
-                                        <b-button class="mb-5">tAKE THE QUIZ</b-button>
+                                        <p>brainy history fan we bet you'll know about all the coolest bits!
+                                        </p><p> Test your trivia now!</p>
+                                        <b-button class="mb-5 how_much_header_quiz-btn">TAKE THE QUIZ</b-button>
                                     </div>
                                 </b-col>
                                  <b-col class="col-6">
-                                     <div class="how_much">
-                                        <div class="">
-                                            <b-button class="m-5">
+                                     <div class="how_much p-4 my-2">
+                                        <div class="mt-5">
+                                            <b-button class="mt-2 how_much_template-btn mb-2">
                                                 Yes Template
                                             </b-button>
                                         </div>
-                                        <div>
-                                            <b-button class="m-5">
+                                        <div class="my-4">
+                                            <b-button class=" how_much_template-btn_white mt-2 mb-5">
                                                 Preview
                                             </b-button>
                                         </div>
@@ -88,20 +89,25 @@
                                     </div>
                                 </b-col>
                             </b-row>
-                            <b-row>
+                            <b-row class="justify-content-center align-items-center text-center">
                                  <b-col class="col-6 mt-5">
                                      <div class="how_much">
-                                        <h4>How much do you know about history?</h4>
+                                        <h6 class="how_much_header">How much do you know about history?</h6>
                                         <img src="@/assets/images/warrior.png">
-                                        <p></p>
+                                        <p>brainy history fan we bet you'll know about all the coolest bits! Test your trivia now!</p>
                                         <b-button
-                                            class=""
-                                        ></b-button>
+                                            class="mb-5 how_much_header_quiz-btn"
+                                        >
+                                            TAKE THE QUIZ
+                                        </b-button>
                                     </div>
                                 </b-col>
-                                 <b-col class="col-6 how_much">
-                                    <div class="">
+                                 <b-col class="col-6 mt-5">
+                                    <div class="epic_container">
+                                        <h6 class="epic_container_header">Why not test your knowledge in this epic trivia challenge?</h6>
                                         <img class="" src="@/assets/images/epic.png">
+                                        <p>brainy history fan we bet you'll know about all the coolest bits! Test your trivia now!</p>
+                                        <b-button class="mb-5 epic_container_header_epic_btn">TAKE THE QUIZ</b-button>
                                     </div>
                                 </b-col>
                                
@@ -155,7 +161,39 @@
     }
     .how_much{
         background:#FFE8EE;
+        &_header{
+            color:#D12551;
+            &_quiz-btn{
+                background: #EF4873;
+                border: 1px solid #EF4873;
+            }
+            
+        }
+        &_template-btn{
+            width:200px; 
+            height:50px;
+            background:#EF4873 ;
+            border: 1px solid #EF4873;
+            &_white{
+             width:200px;
+             height:50px;
+             background: #FFFFFF;
+             color: #D12551;
+             border:1px solid #D12551;
+             
+        }
+        }
+        
     }
-   
+    .epic_container{
+        background: #E5ECFF;
+        &_header{
+            color:#313F68;  
+            &_epic_btn {
+                background: #344E99;
+            }
+        }
+
+    }
                     
 </style>
