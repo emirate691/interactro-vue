@@ -9,7 +9,7 @@ import EngagementType from'@/views/EngagementType.vue'
 import QuizType from '@/views/QuizType.vue'
 import Dashboard from '@/views/Dashboard.vue'
 import Template from '@/views/Template.vue'
-
+import Quizeditor from '@/views/Quizeditor.vue'
 
 Vue.use(VueRouter)
 
@@ -62,10 +62,11 @@ const routes = [
     name: 'template',
     component: Template
   },
-  
- 
-   
-   
+  {
+  path:'/quizeditor',
+  name:'quizeditor',
+  component: Quizeditor
+  }
 ]
   
 
