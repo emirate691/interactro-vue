@@ -10,6 +10,7 @@ import QuizType from '@/views/QuizType.vue'
 import Dashboard from '@/views/Dashboard.vue'
 import Template from '@/views/Template.vue'
 import Quizeditor from '@/views/Quizeditor.vue'
+import Titlequiz from '@/views/Titlequiz.vue'
 
 Vue.use(VueRouter)
 
@@ -63,9 +64,14 @@ const routes = [
     component: Template
   },
   {
-  path:'/quizeditor',
-  name:'quizeditor',
-  component: Quizeditor
+    path:'/quizeditor',
+    name:'quizeditor',
+    component: Quizeditor
+  },
+  {
+    path:'/titlequiz',
+    name: 'titlequiz',
+    components: Titlequiz
   }
 ]
   
