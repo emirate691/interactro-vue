@@ -6,7 +6,7 @@
 <script>
 import Untitlesidebar from '../components/Untitlesidebar.vue';
 export default {
-    name: 'Untitlesidebar', 
+    name: 'Untitlequiz', 
     components: { Untitlesidebar }
     
 }

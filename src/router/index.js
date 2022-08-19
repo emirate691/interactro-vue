@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue' 
 import Register from '@/components/auth/Register.vue'
-import Login from '@/components/auth/Login.vue'
+import Question from '@/views/Question.vue'
 import EmailVerified from'@/views/EmailVerified.vue'
 import Emailreset from'@/views/Emailreset.vue'
 import EngagementType from'@/views/EngagementType.vue'
@@ -10,7 +10,7 @@ import QuizType from '@/views/QuizType.vue'
 import Dashboard from '@/views/Dashboard.vue'
 import Template from '@/views/Template.vue'
 import Quizeditor from '@/views/Quizeditor.vue'
-import Titlequiz from '@/views/Titlequiz.vue'
+import UntitleQuiz from '@/views/UntitleQuiz.vue'
 
 Vue.use(VueRouter)
 
@@ -27,9 +27,9 @@ const routes = [
     component: Register
   },
   {
-    path:'/login',
-    name: 'login',
-    component: Login
+    path:'/question',
+    name: 'question',
+    component: Question
   },
   {
     path:'/emailVerified',
@@ -69,11 +69,11 @@ const routes = [
     component: Quizeditor
   },
   {
-    path:'/titlequiz',
-    name: 'titlequiz',
-    components: Titlequiz
+    path:'/UntitleQuiz',
+    name:'UntitleQuiz',
+    components: UntitleQuiz
   }
-]
+ ]
   
 
 const router = new VueRouter({

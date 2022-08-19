@@ -31,7 +31,8 @@
                                     <img class="pr-3" src="@/assets/sidebars/question.png">QUESTIONS
                                 </button>
                             </h2>
-                            <div id="faq-content-2" class="accordion-collapse-1 collapse" data-bs-parent="#faqlist">
+                            <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                               <div id="faq-content-2" class="accordion-collapse-1 collapse" data-bs-parent="#faqlist">
                                 <div class="accordion-body-1">
                                     <div class="mx-4">
                                         <b-link
@@ -62,6 +63,8 @@
                                         </b-link>
                                     </div>
                                 </div>
+                            </div>
+
                             </div>
                         </div>
 
@@ -122,7 +125,7 @@
                     
                 
                 <div class="botton_btn_help position-absolute">
-                     <div class="p-3">
+                    <div class="p-3">
                         <img class="" src="@/assets/sidebars/help.png">
                         <span class="ml-2   botton_btn_help_para">HELP</span>
                     </div>
@@ -249,16 +252,14 @@
                     <img class="mt-3" src="@/assets/sidebars/logo__image.png">
                 </div>
             </div>
-            <div class="untitlequiz p-5 m-5">
+            <div class="untitlequiz p-5 m-5 pb-5">
                 
                 <div class="container">
-                    <Untitlequiz />
+                    <Quiz />
                 </div>
-                <div class="remove_logo mx-5 position-absolute ">
-                    <img src="@/assets/images/remove logo.png">
-                </div>
+                
                 <div class=" power-by mx-5 position-absolute ">
-                    <img src="@/assets/images/powered by.png">
+                    <img src="@/assets/images/powered by.png" height="34px">
                 </div>
             </div>
         </b-col>
@@ -267,10 +268,10 @@
     </div>
 </template>
 <script>
-    import Untitlequiz from '../components/quiz/Untitlequiz.vue'
+    import Quiz from '../components/quiz/Quiz.vue'
     export default {
-        name: 'Quizeditor',
-        components: { Untitlequiz }
+        name: 'Question',
+        components: { Quiz }
     }
    
 </script>
@@ -307,15 +308,9 @@
                 border: none;
                 background:#313F68;  
             }
-            
             .accordion-button:not(.collapsed) {
                 background:#313F68;   
                 color: #FFFFFF;
-            }
-             .accordion-button-1:not(.collapsed) {
-                background:#313F68;   
-                color: #FFFFFF;
-                background: #D12551;
             }
             .accordion-body {
                 padding: 8px;
@@ -334,7 +329,6 @@
                 
                 
             }
-            
             .accordion-button::after {
                 width: auto;
                 height: auto;
@@ -357,29 +351,7 @@
                 color: #AFAFAF;
                 transform: translateY(-4px);
             }
-            .accordion-button:not(.collapsed)::after {
-                width: auto;
-                height:auto;
-                
-                content: "-";
-                font-size: 48px;
-                color: #F6F6F6;
-                
-                transform: translate(-5px, -4px);
-                transform: rotate(0deg);
-            }
-             .accordion-button:not(.collapsed)::after {
-                width: auto;
-                height:auto;
-                
-                content: "-";
-                font-size: 48px;
-                color: #F6F6F6;
-                
-                transform: translate(-5px, -4px);
-                transform: rotate(0deg);
-            }
-             .link{
+            .link{
                 color:#C4C4C4;
                 font-weight: 400;
                 font-size: 12px;
@@ -397,9 +369,21 @@
                 }
                 
             }
-            .accordion-button-1:not(.collapsed)::after {
+            .move__icon{
+                position: absolute;
+                left:3px;
+            }
+            .setting__icon{
+                position: absolute;
+                right:3px;
+            }
+
+            .accordion-button:not(.collapsed)::after {
                 width: auto;
                 height:auto;
+                //background:red;
+                //border-radius:50%;
+                //margin-bottom: 30px;
                 content: "-";
                 font-size: 48px;
                 color: #F6F6F6;
@@ -427,14 +411,6 @@
                 border-radius: 0px 0px 20px 0px;
                 width:211px;
                 height:45px;
-            }
-            .move__icon{
-                position: absolute;
-                left:3px;
-            }
-            .setting__icon{
-                position: absolute;
-                right:3px;
             }
             
         
@@ -536,22 +512,20 @@
             }
             .untitlequiz{
                 background:#FFFFFF;
-                height:500px;
+                height:550px;
             }
             .power-by{
                 right:13px;
-                bottom:10px;
+                bottom:12px;
             }
             .remove_logo{
                 bottom:65px;
                 right:50px;
             }
-            
                 
-            
-           
+                 
+
         }
-        
         
     }
  </style>

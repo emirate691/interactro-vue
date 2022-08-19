@@ -5,7 +5,9 @@
         <h2 class="text-center font-weight-bolder">UNTITLED QUIZ</h2>
     </div>
     <form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
-        
+         <div class="info__1 position-absolute">
+              <img src="@/assets/images/info (1).png">
+          </div>
         <div class="dropbox">
           <div class="justify-content-center align-items-center text-center">
             <b-button
@@ -16,6 +18,7 @@
                <img src="@/assets/sidebars/logo__image.png"><span class="mx-2">EDIT COVER IMAGE </span>
             </b-button>
           </div>
+         
           <input type="file" multiple :name="uploadFieldName" :disabled="isSaving" @change="filesChange($event.target.name, $event.target.files); fileCount = $event.target.files.length"
             accept="image/*" class="input-file">
             <p v-if="isInitial">
@@ -26,16 +29,25 @@
             </p>
         </div>
       </form>
+       <div class="info__2 position-absolute">
+          <img src="@/assets/images/info (1).png">
+        </div>
       <div class="mt-3">
         <input 
           placeholder="Type your description here"
           class="input_description"
         />
+        
       </div>
+       <div class="info__3 position-absolute">
+          <img src="@/assets/images/info (1).png">
+        </div>
       <div class="justify-content-center align-items-center text-center mt-3">
         <b-button
+         to="/question"
           variant="clear"
           class="take_quiz text-center"
+          
           
         >
           <span class="mx-2">TAKE QUIZ</span>
@@ -183,6 +195,20 @@
       color:#FFFFFF;
       width:25%;
     }
+    .info__1{
+      right:100px;
+    }
+    .info__2{
+      right:100px;
+      bottom:280px;
+    }
+    .info__3{
+      right:100px;
+      bottom:130px;
+    }
+
+    
+
 }
      
 </style>
