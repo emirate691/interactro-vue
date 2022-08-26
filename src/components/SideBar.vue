@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar_page col-3 vh-100">
+    <div class="sidebar_page col-3 vh-100 position-fixed">
         
         
         <div class="">

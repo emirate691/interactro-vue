@@ -1,7 +1,7 @@
 <template>
     <div class="untitlequiz__page d-flex vh-100"> 
 
-        <div class="untitlequiz__page__sidebar h-100 ">  
+        <div class="untitlequiz__page__sidebar h-100 sticky">  
             <div class="">
                 <router-link to="/">
                     <img  class="m-3 px-3"  src="@/assets/headers/dashboard_logo.png">
@@ -249,10 +249,10 @@
                     <img class="mt-3" src="@/assets/sidebars/logo__image.png">
                 </div>
             </div>
-            <div class="untitlequiz p-5 m-5">
+            <div class="untitlequiz p-5 m-5 vh-100">
                 
-                <div class="container">
-                    <Untitlequiz />
+                <div class="container ">
+                    <Untitlequizs />
                 </div>
                 <div class="remove_logo mx-5 position-absolute ">
                     <img src="@/assets/images/remove logo.png">
@@ -267,14 +267,16 @@
     </div>
 </template>
 <script>
-    import Untitlequiz from '../components/quiz/Untitlequiz.vue'
+    import Untitlequizs from '../components/quiz/Untitlequizs.vue'
     export default {
         name: 'Quizeditor',
-        components: { Untitlequiz }
+        components: { Untitlequizs }
     }
    
 </script>
  <style lang="scss" scoped>
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
+
     .untitlequiz__page{
         &__sidebar{
             background:#313F68;
@@ -447,6 +449,7 @@
                 border-radius: 0px 20px 20px 0px;
                 background:#FFFFFF;
                 height:38px;
+            
                 right:0;
                 top:7px
             
@@ -537,6 +540,7 @@
             .untitlequiz{
                 background:#FFFFFF;
                 height:500px;
+                font-family: 'Roboto', sans-serif;
             }
             .power-by{
                 right:13px;

@@ -12,11 +12,11 @@
            
         >
               <template v-if="isHidden"><img src="@/assets/sidebars/Preview.png"><span class="mx-2">SHOW QUESTION IMAGE </span></template>
-              <template v-else>HIDE QUESTION IMAGE <span class="">EDIT</span></template>
+              <template v-else></template>
             
         </b-button>
           
-        <form enctype="multipart/form-data">
+        <form enctype="multipart/form-data" v-if="isHidden">
          <div class="info__1 position-absolute">
               <img src="@/assets/images/info (1).png">
           </div>
@@ -27,7 +27,7 @@
               class="edit-cover_image text-center position-absolute"
               
             >
-               <img src="@/assets/sidebars/use_image_answer.png"><span class="mx-2">USE IMAGE ANSWER</span>
+               <img src="@/assets/sidebars/list.png"><span class="mx-2">USE TEXT ANSWERS</span>
             </b-button>
              <b-button
               variant="clear"
@@ -35,7 +35,7 @@
               
             >
                <img src="@/assets/sidebars/set_answers.png"><span class="mx-2">ANSWER SETTINGS </span>
-            </b-button>
+            </b-button>           
              <b-button
               variant="clear"
               class="set_correctanswer_btn text-center position-absolute"
@@ -44,48 +44,67 @@
                <img src="@/assets/sidebars/correct_answer_bg.png" class="correct_answer_bg"><span class="mx-2">SET CORRECT ANSWER </span>
             </b-button>
           </div>
-           <div class="mt-5">
-              <b-form-group >
-                <b-input-group class="mb-2">
-      
-                <b-form-input aria-label="Text input with checkbox" class="checkbox_bg" placeholder="ANSWER A"></b-form-input>
-                <span class=" mx-3 mt-2 position-absolute"><img src="@/assets/sidebars/rectangle.png"></span>
-                </b-input-group>
-              </b-form-group>
+           <div class="d-flex mt-5 mx-5 px-5">
+            
+               <div class="mx-4 edit_image_frame">
+                   <form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
+                        <div class="edit_image_frame-dropbox">
+                            <div class="justify-content-center align-items-center text-center">
+                                <b-button
+                                    variant="clear"
+                                    class="edit-cover_image text-center position-absolute"
+              
+                                >
+                                    
+                                </b-button>
+
+                            </div>
+                       </div>
+                    </form>
+                    <span class="">ANSWER A</span>
+                </div>
+                <div class="mx-4 edit_image_frame">
+                    <form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
+                        <div class="edit_image_frame-dropbox">
+                            <div class="justify-content-center align-items-center text-center">
+                                <b-button
+                                    variant="clear"
+                                    class="edit-cover_image text-center position-absolute"
+              
+                                >
+                                    
+                                </b-button>
+                                    mmm
+                            </div>
+                       </div>
+                    </form>
+                    <span class="">ANSWER B </span>
+                </div>
+                <div class="mx-4 edit_image_frame">
+                    <form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
+                        <div class="dropbox">
+                            <div class="justify-content-center align-items-center text-center">
+                                <b-button
+                                    variant="clear"
+                                    class="edit-cover_image text-center position-absolute"
+              
+                                >
+                                    
+                                </b-button>
+
+                            </div>
+                       </div>
+                    </form>
+                     <span 
+                      variant="clear"
+                     >
+                        ADD ANSWER
+                    </span>
+                </div>
            </div>
             
-            <div class="mt-4" v-for="(answer, index) in answers" :key="index">
-              <b-form-group >
-                <b-input-group class="mb-2">
-                  <b-form-input aria-label=""  v-model="answer.answerName" class="checkbox_bg"  placeholder="ANSWER B"></b-form-input>
-                  <span class="checkbox_tick mx-3 mt-2 position-absolute"><img src="@/assets/sidebars/rectangle.png"></span>
-                      <button
-                        type="button"
-
-                        class="ml-2 rounded-md border px-3 py-2 bg-white-600"
-                        @click="remove(index)"
-                        v-show="index != 0"
-                      >
-                        <b-icon icon="trash" />
-                      </button>
-                </b-input-group>
-                
-              </b-form-group>
-            </div>
-           <div class="add_quiz justify-content-center align-items-center text-center mt-5 m-3">
-              <b-button
-              
-                  variant="clear"
-                  class="add_quiz_btn text-center m-2"
-                  @click="addMore()"
-                  
-                >
-                <span class="mx-2"><img src="@/assets/sidebars/plus.png">ADD ANSWER</span>
-                </b-button>
-            </div> 
-            <div class="w-full mt-4 p-10">
-      
-    </div>
+         
+           
         </div>
       </form>
            
@@ -106,29 +125,10 @@
 <script>
   export default{
     name: 'untitlequiz_page',
-    props: {
-    msg: String,
-  },
     data () {
       return {
-        isHidden: true,
-        answers: [
-        {
-          answerName: "",
-        },
-         
-      ],
+        isHidden: true
       }
-    },
-    methods: {
-      addMore() {
-        this.answers.push({
-        courseName: "",
-      });
-      },
-      remove(index) {
-      this.answers.splice(index, 1);
-    },
     }
   }
     
@@ -150,13 +150,12 @@
   .dropbox {
     /* the dash box */
  
-    //background: #D9D9D9;
+    
     border: 0.5px dashed #C4C4C4;
     padding: 10px 10px;
     margin-top:100px;
     height: 300px;
     position: relative;
-    //cursor: pointer;
     border-radius: 10px;
 
     }
@@ -226,38 +225,18 @@
       border-left:1px solid #C4C4C4;
     }
    
-    .input_description{
-      width:100%;
-      background: #F7F7F7;
-      border-radius: 10px;
-      border:1px solid #F7F7F7;
-      opacity:1;
-      height:40px;
-    }
-    .checkbox_bg{
-      background: #F7F7F7;
-      border-radius: 10px;
-      height:50px;
-  
-    }
-    .checkbox_bg::placeholder{
-      padding-left:50px;
-    }
-    .checkbox_tick{
-       padding:30px, 30px
-      
-    }
-    .add_quiz{
-      border: 0.5px dashed #C4C4C4;
-      border-radius: 10px;
+    
+    
+    .edit_image_frame{
+      background:#E5E5E5;
+      border-radius: 5px;
+      width:150px;
       height:60px;
-      &_btn{
-      background: #E5E5E5;
-      border-radius: 10px;
-      color:#AFAFAF;
-      width:20%;
-      font-size:14px;
-      }
+      
+    .edit_image_frame-dropbox{
+        background:red;
+        height:100px;
+    }
     }
     .info__1{
       right:100px;

@@ -53,10 +53,12 @@
                                 placeholder="***********"
                                 type="password"
                                 class="form__input"
+                                v-model="password"
+                                
                             />
                             <div class="input_addon" >
                                     <b-icon v-if="showPassword" icon="eye" aria-hidden="true" />
-                                    <b-icon v-else icon="eye-slash" aria-hidden="true" />
+                                    <b-icon v-else icon="eye-slash"    aria-hidden="true" />
                             </div> 
                             <b-form-invalid-feedback
                                 id="email-feedback"
@@ -137,8 +139,20 @@
 export default {
     name: "Login",
     data : () => ({
-        submitting : false
-    })
+        submitting : false,
+         showPassword: false,
+         password: null
+    }),
+     computed: {
+        buttonLabel() {
+        return (this.showPassword) ? "Hide" : "Show";
+    }
+    },
+    methods: {
+        toggleShow() {
+        this.showPassword = !this.showPassword;
+        }
+    }
 
     
 }

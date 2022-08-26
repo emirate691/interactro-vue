@@ -280,6 +280,7 @@
         &__sidebar{
             background:#313F68;
             width:300px;
+            position:sticky;
             .accordion-collapse {
                 border: 0;
             }
