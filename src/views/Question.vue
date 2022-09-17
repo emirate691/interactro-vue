@@ -1,4 +1,4 @@
-<template>
+<!--template>
     <div class="untitlequiz__page d-flex vh-100"> 
 
         <div class="untitlequiz__page__sidebar h-100 ">  
@@ -100,11 +100,7 @@
                                 <img class="pr-2" src="@/assets/sidebars/share.png">SOCIAL SHARE SETTINGS
                                 
                             </h2>
-                            <!--div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                <div class="accordion-body">
-                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-                                </diV>
-                            </div-->
+                           
                         </div>
                         <div class="mb-4">
                             <h2 class="header">
@@ -112,11 +108,11 @@
                                     <img class="pr-2" src="@/assets/sidebars/Tracking.png"> CONVERSION TRACKING
                                 
                             </h2>
-                            <!--div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                 <div class="accordion-body">
                                     Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
                                 </div>
-                            </div-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -529,4 +525,187 @@
         }
         
     }
+ </style-->
+ <template>
+    <div class="untitlequiz__page d-flex "> 
+       
+
+        <b-col class="untitle__page fixed">
+           
+            <div class="col-12 pt-5">
+                <Navbar />
+            </div>  
+             <div class="pt-5 mt-3">
+                <SideBars />
+            </div>
+            <div class="container position-absolute untitlequiz col-8">
+                
+                <div class=" p-5">
+                    <Quiz />
+                     
+                    
+                    
+                    <div class="quizbutton position-relative">
+                        <Quizbutton />
+                    </div>
+                   
+                </div>
+                <div class="remove_logo mx-5 position-absolute ">
+                    <img src="@/assets/images/remove logo.png">
+                </div>
+                <div class=" power-by mx-5 position-absolute ">
+                    <img src="@/assets/images/powered by.png">
+                </div>
+            </div>
+            
+        </b-col>
+        
+            
+    </div>
+</template>
+<script>
+    import Quiz from '../components/quiz/Quiz.vue'
+    import SideBars from '../components/SideBars.vue'
+    import Navbar from '../components/Navbar.vue'
+    import Quizbutton from '../components/Quizbutton.vue'
+    //import Quizresult from '../components/Quizresult.vue'
+    export default {
+        name: 'Quizeditor',
+        components: {SideBars, Navbar, Quiz, Quizbutton,}
+    }
+   
+</script>
+ <style lang="scss" scoped>
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
+
+        .untitle__page{
+            background:#F4F4F4;
+            height:800px;
+            
+            .right-block{
+               // background:#FFFFFF;
+                border-radius: 0px 20px 20px 0px;
+                background:#FFFFFF;
+                height:38px;
+            
+                right:0;
+                top:-40px;
+                
+
+            
+                
+            }
+            .noti{
+                margin-left:-41px;
+            }
+            .user{
+                position:relative;
+                top:-23px;
+            }
+            .upgrade{
+                position:absolute;
+                right:200px;  
+                top:-40px;
+                color:#000000;
+                &-btn___link{
+                    color:#000000;
+                    background:#FFFFFF;
+                    font-size:12px;
+                    border:1px solid #FFFFFF;
+                }                
+                    
+            }
+            .button_text_section{
+                position:relative;
+                //background:#FFFFFF;
+                left:82px; 
+                top:20px;
+               
+               
+                &_button-color{
+                    background:#C4C4C4;
+                    
+                    
+                    
+                     
+                }
+               
+                .section_2{
+                    background-color:#E5E5E5;
+                    border-radius: 10px 0px 0px 10px;
+                    
+                    
+                        
+                }
+                .section-3{
+                    background-color:#FFFFFF;
+                   
+                }
+                .background_color{
+                    background:#D12551;
+                    width: 25px;
+                    height: 25px;
+                    border-radius:50%;
+                    font-size:10px;
+                    
+                    
+                }
+                .option{
+                    background:#EF4873;
+                    width: 25px;
+                    height: 25px;
+                    border-radius:50%;
+                }
+                .selection{
+                    background:#FFCAD8;
+                    width:25px;
+                    height: 25px;
+                    border-radius:50%;
+                    
+                }
+                .progress__bar{
+                    background:#313F68;
+                    width: 25px;
+                    height:25px;
+                    border-radius:50%;
+                    
+                    
+                }
+                .button{
+                    background:#6379B9;
+                    width: 25px;
+                    height: 25px;
+                    border-radius:50%;
+                }
+                
+    
+            }
+            .quizbutton{
+                top:-415px;
+            }
+            .untitlequiz{
+                background:#FFFFFF;
+                height:750px;
+                font-family: 'Roboto', sans-serif;
+                top:150px;
+                left:400px;
+                
+            }
+            .power-by{
+                right:13px;
+                bottom:10px;
+            }
+            .remove_logo{
+                bottom:65px;
+                right:50px;
+            }
+            
+                
+            
+           
+        }
+        
+        
+    
  </style>
+

@@ -13,16 +13,15 @@
                         <b-col>
                             <div class="dashboard__container__form-left-block justify-content-left align-items-left text-left">
                             
-                            <h1 > Quizzes</h1>
+                            <h1 > PollS</h1>
                             </div>
                             </b-col>
                         <b-col>
                             <div class="dashboard__container__form-right-block justify-content-right align-items-right text-right">
                                     <b-button
                                     class="create-btn"
-                                    to="/template"
                                     >
-                                        + CREATE QUIZ
+                                        + CREATE NEW POLLS
                                     </b-button>
                             </div>
                         </b-col>
@@ -31,7 +30,7 @@
             </div>
             
             <div class="dashboard_items">
-                <Dashboarditems />
+                <Pollsitems />
             </div>
         </b-container>  
         
@@ -43,12 +42,12 @@
 <script>
 
 import Dashboardheader from '../components/Dashboardheader.vue'
-import Dashboarditems from '../components/Dashboarditems.vue'
+import Pollsitems from '../components/Pollsitems.vue'
 
 export default {
     
     name:'Dashboard',
-    components: { Dashboardheader , Dashboarditems}
+    components: { Dashboardheader , Pollsitems }
 }
 </script>
 <style lang="scss" scoped>

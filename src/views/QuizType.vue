@@ -57,16 +57,27 @@
             </b-col>
             
         </b-row>
+        
       </div>
+    </div>
+    <div>
+      <div class="">
+        <Pollsidebar/>
+      </div>
+      
+      <Polleditor />
     </div>
   </div>
 </template>
 
 <script>
 import Header from '../components/Header.vue'
+import Polleditor from '../views/Polleditor.vue'
+import Pollsidebar from '../components/Pollsidebar.vue'
+
 export default {
     name:"EngagementType",
-    components:{ Header },
+    components:{ Header, Polleditor,Pollsidebar },
 }
 </script>
  

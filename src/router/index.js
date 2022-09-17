@@ -11,7 +11,10 @@ import Dashboard from '@/views/Dashboard.vue'
 import Template from '@/views/Template.vue'
 import Quizeditor from '@/views/Quizeditor.vue'
 import UntitleQuiz from '@/views/UntitleQuiz.vue'
-
+import Polls from '@/views/Polls.vue'
+import Polleditor from '@/views/Polleditor.vue'
+import Giveaways from '@/views/Giveaways.vue'
+import Result from '@/views/Result.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -42,6 +45,11 @@ const routes = [
     component: Emailreset
   },
   {
+    path:'/polleditor',
+    name:'polleditor',
+    components:Polleditor
+  },
+  {
     path:'/engagementType',
     name: 'engagementType',
     component: EngagementType
@@ -69,10 +77,26 @@ const routes = [
     component: Quizeditor
   },
   {
-    path:'/UntitleQuiz',
+    path:'/untitleQuiz',
     name:'UntitleQuiz',
     components: UntitleQuiz
+  },
+  {
+    path:'/polls',
+    name:'Polls',
+    components: Polls
+  },
+  {
+    path: "/giveaways",
+    name: "giveaways",
+    components:Giveaways
+  },
+  {
+    path:"/result",
+    name:"result",
+    components:Result
   }
+  
  ]
   
 

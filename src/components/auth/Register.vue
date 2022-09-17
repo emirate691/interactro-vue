@@ -47,14 +47,13 @@
                                                 type="text"
                                                 class="form__input w-100"
                                                 v-model="register.company_name"
-                                                :class="{ 'is-invalid': isSubmitted && $v.register.company_name.$error }"
+                                                
                                             />
                                             <b-form-invalid-feedback
                                                 id="email-feedback"
-                                                v-if="isSubmitted && !$v.register.company_name.required"
-                                            >
+                                             >
                                             <ul class="m-0 pl-3 list-unstyled">
-                                                <li  v-if="!$v.register.company_name.required" class="py-1">
+                                                <li class="py-1">
                                                     company name is require
                                                 </li>
                                             </ul>
@@ -71,16 +70,16 @@
                                                 type="text"
                                                 class="form__input w-100"
                                                  v-model="register.name"
-                                                 :class="{ 'is-invalid': isSubmitted && $v.register.name.$error }"
+                                                
 
 
                                             />
                                             <b-form-invalid-feedback
                                                 id="email-feedback"
-                                                v-if="isSubmitted && !$v.register.name.required"
+                                                
                                             >
                                             <ul class="m-0 pl-3 list-unstyled">
-                                                <li v-if="!$v.register.name.required" class="py-1">
+                                                <li  class="py-1">
                                                     name is require
                                                 </li>
                                             </ul>
@@ -99,18 +98,18 @@
                                                 type="email"
                                                 class="form__input w-100"
                                                 v-model="register.email"
-                                                :class="{ 'is-invalid': isSubmitted && $v.register.email.$error }"
+                                                
                                                 
                                             />
                                             <b-form-invalid-feedback
                                                 id="email-feedback"
-                                                v-if="isSubmitted && $v.register.email.$error"
+                                                
                                             >
                                             <ul class="m-0 pl-3 list-unstyled">
-                                                <li  v-if="!$v.register.email.required" class="py-1">
+                                                <li   class="py-1">
                                                     enter a valid email
                                                 </li>
-                                                <li v-if="!$v.register.email.email" class="py-1">
+                                                <li  class="py-1">
                                                     email is already registered
                                                 </li>
                                             </ul>
@@ -129,7 +128,7 @@
                                                 type="password"
                                                 class="form__input w-100"
                                                 v-model="register.password"
-                                                :class="{ 'is-invalid': isSubmitted && $v.register.password.$error }" 
+                                                
                                             />
                                             <div class="input_addon" @click="showPassword = !showPassword">
                                                 <b-icon v-if="showPassword" icon="eye" aria-hidden="true" />
@@ -137,10 +136,10 @@
                                             </div> 
                                             <b-form-invalid-feedback
                                                 id="password-feedback"  
-                                                v-if="isSubmitted && $v.register.password.$error"
+                                               
                                             >
                                             <ul class="m-0 pl-3 list-unstyled">
-                                                <li v-if="!$v.register.password.required">
+                                                <li>
                                                     Password is required: Minimum 8 characters
                                                 </li>
                                             </ul>
@@ -153,7 +152,7 @@
                                         <b-form-group
                                             id="terms_checkox"
                                             invalid-feedback="This is required"
-                                            @change="$v.register.accept.$touch()"
+                                            
                                            
 
                                         >
@@ -173,12 +172,11 @@
                                                 </b-form-checkbox>
                                                 <b-form-invalid-feedback
                                                      id="terms-feedback"
-                                                     v-if="isSubmitted && $v.register.accept.$error"
-                                                     
+                                                                                                          
                                                 >
 
                                                     <ul class="m-0 pl-3 list-unstyled">
-                                                        <li v-if="!$v.userForm.accept.required" class="py-1">
+                                                        <li class="py-1">
                                                             Accept Terms of service to proceed
                                                         </li>
                                                     </ul>
@@ -283,11 +281,12 @@ export default {
         methods: {
             handleSubmit() {
                 this.isSubmitted = true;
-               
+
                 if (this.$v.$invalid) {
                     return;
                 }
                 alert("SUCCESS!" + JSON.stringify(this.register));
+                console.log("submitted")
             }
         }
 
@@ -531,3 +530,80 @@ export default {
 </style-->
 
 
+<!--template>
+    <div class="container pt-5 w-100 bg-primary">
+        <form @submit.prevent="handleSubmit">
+            <span class="">
+                <label>first name</label>
+                <input type="text" class="form-control"  v-model="first_name">
+            </span>
+             <span class="">
+                <label>middle name</label>
+                <input type="text" class="form-control" v-model="middle_name" >
+            </span>
+             <span class="">
+                <label>Last name</label>
+                <input type="text"  class="form-control" v-model="last_name">
+            </span>
+             <span class="">
+                <label>email</label>
+                <input type="email"  class="form-control" v-model="email">
+            </span>
+             <span class="">
+                <label>password</label>
+                <input type="password" class="form-control" v-model="password">
+            </span>
+             <span class="">
+                <label>confirm password</label>
+                <input type="password" class="form-control" v-model="password_confirm">
+            </span>
+            <button class="btn btn-primary btn-block">complete </button>
+        </form>
+    </div>
+</template>
+<script>
+import axios from 'axios'
+export default {
+    name:"Register",
+    data() {
+        return {
+            first_name: '',
+            last_name: '',
+            middle_name: '',
+            email:'',
+            password:'',
+            password_confirm:'',
+        }
+    },
+    methods: {
+        handleSubmit() {
+            const data = {
+                first_name: this.first_name,
+                last_name : this.last_name,
+                middle_name : this.middle_name,
+                email: this.email,
+                password: this.password,
+                confirm_password: this.confirm_password
+
+            };
+            axios.post('http://localhost:8000/register', data)
+
+                .then (
+
+                    res => {
+                        console.log(res)
+                    }
+                ).catch(
+                    err => {
+                        console.log(err)
+                    }
+                )
+           }
+
+    }
+    
+}
+</script>
+<style lang="scss" scoped>
+
+</style-->

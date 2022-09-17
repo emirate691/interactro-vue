@@ -54,7 +54,8 @@
                                 type="password"
                                 class="form__input"
                                 v-model="password"
-                                
+                                v-on:click="isHidden = !isHidden"
+                            
                             />
                             <div class="input_addon" >
                                     <b-icon v-if="showPassword" icon="eye" aria-hidden="true" />

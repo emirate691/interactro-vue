@@ -5,9 +5,10 @@
                 <img class="mx-5 my-3" src="@/assets/headers/dashboard_logo.png">
             </div>
             <div class="header__link mt-4">  
-                <b-link class="header__link__quiz mx-3" to="/">Quizzes</b-link>
-                <b-link class="header__link__polls mx-3" to="/">Polls</b-link>
-                <b-link class="header__link__giveaways mx-3" to="/">Giveaways</b-link>
+              
+                <router-link class="header__link__quiz mx-3" to="/">Quizzes</router-link>
+                <router-link class="header__link__polls mx-3" to="/">Polls</router-link>
+                <router-link class="header__link__giveaways mx-3" to="/question">Giveaways</router-link>
         
             </div>
             <div class="right-block mx-auto d-flex justify-content-end">

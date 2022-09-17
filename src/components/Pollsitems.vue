@@ -18,23 +18,21 @@
           <b-col class="col-6">
             <b-form-group>
               <b-form-input
-              class="w-50 search-input"
-              v-model="input"
+              class="w-50"
+              v-model="search"
               placeholder="Search"
               
               >
               </b-form-input>
             </b-form-group>
           </b-col>
-          
-            
         
         </b-row>
       </div>
-        <div class="white__bg mx-5 mb-5 ">
+        <div class="white__bg mx-5 mb-5">
           <b-row>
             <b-col class="m-3 pl-5">
-              <h3>{{ quiz }}</h3>
+              <h3>{{quizes.title}}</h3>
               <span class="">
                 <span class="untitle_quiz_icon p-2"><img class="mx-2" src="@/assets/icons/untitle_quiz_icon.png">Personal</span>  
                 <span class="mx-2">created</span> 
@@ -76,7 +74,6 @@
           </b-row>
 
         </div>
-        
 
         <div class="white__bg mb-5 mx-5">
           <b-row>
@@ -165,14 +162,47 @@
 </template>
 
 <script>
-
-    
-      
-    
-
-    
-    
-  
+  export default {
+    data() {
+      return {
+        quizes:[
+          {title:'untitle' , descrition:'quiz'}
+        ],
+        search:''
+        
+      }
+    },
+    computed: {
+      sortOptions() {
+        // Create an options list from our fields
+        return this.fields
+          .filter(f => f.sortable)
+          .map(f => {
+            return { text: f.label, value: f.key }
+          })
+      }
+    },
+    mounted() {
+      // Set the initial number of items
+      this.totalRows = this.items.length
+    },
+    methods: {
+      info(item, index, button) {
+        this.infoModal.title = `Row index: ${index}`
+        this.infoModal.content = JSON.stringify(item, null, 2)
+        this.$root.$emit('bv::show::modal', this.infoModal.id, button)
+      },
+      resetInfoModal() {
+        this.infoModal.title = ''
+        this.infoModal.content = ''
+      },
+      onFiltered(filteredItems) {
+        // Trigger pagination to update the number of buttons/pages due to filtering
+        this.totalRows = filteredItems.length
+        this.currentPage = 1
+      }
+    }
+  }
 </script>
 <style lang="scss" scoped>
     .dashboard__item{
@@ -207,10 +237,6 @@
              background: #FFFFFF;
             border: transparent;
             color: #D12551;
-          }
-          .search-input{
-            position: absolute;
-            right:0px;
           }
 
     }

@@ -2,7 +2,7 @@
   <div class="untitlequiz_page p-2 m-2 ">
   
     <div class="untitlequiz_page-header">
-        <h2 class="text-center font-weight-bolder">QUESTION 1</h2>
+        <h4 class="text-center font-weight">QUESTION 1</h4>
     </div>
     <div class=" show__question justify-content-center align-items-center text-center" id="app">
         <b-button
@@ -11,39 +11,31 @@
             v-on:click="isHidden = !isHidden"
            
         >
-              <template v-if="isHidden"><img src="@/assets/sidebars/Preview.png"><span class="mx-2">SHOW QUESTION IMAGE </span></template>
-              <template v-else>HIDE QUESTION IMAGE <span class="">EDIT</span></template>
-            
+        
+              <template v-if="isHidden"><img src="@/assets/sidebars/Preview.png"><span class="mx-2">SHOW QUESTION IMAGE </span>
+               
+              </template>
+             
+              <template v-else><img src="@/assets/sidebars/hide.png"><span class="mx-1">HIDE QUESTION IMAGE</span>
+                 <span class=""><button class="show__question__image">EDIT</button> </span>
+                 </template>
+                 
+
         </b-button>
+        
+        
+         <div class="pt-5 mt-5 show_image_question" v-if="!isHidden">
+            <div class="">
+              <img src="@/assets/sidebars/Image.png" class="mb-5">
+            </div>
+           
+          </div>
           
         <form enctype="multipart/form-data">
          <div class="info__1 position-absolute">
               <img src="@/assets/images/info (1).png">
           </div>
         <div class="dropbox">
-          <div class="justify-content-center align-items-center text-center">
-            <b-button
-              variant="clear"
-              class="edit-cover_image text-center position-absolute"
-              
-            >
-               <img src="@/assets/sidebars/use_image_answer.png"><span class="mx-2">USE IMAGE ANSWER</span>
-            </b-button>
-             <b-button
-              variant="clear"
-              class="answer_setting_btn text-center position-absolute"
-              
-            >
-               <img src="@/assets/sidebars/set_answers.png"><span class="mx-2">ANSWER SETTINGS </span>
-            </b-button>
-             <b-button
-              variant="clear"
-              class="set_correctanswer_btn text-center position-absolute"
-              
-            >
-               <img src="@/assets/sidebars/correct_answer_bg.png" class="correct_answer_bg"><span class="mx-2">SET CORRECT ANSWER </span>
-            </b-button>
-          </div>
            <div class="mt-5">
               <b-form-group >
                 <b-input-group class="mb-2">
@@ -85,9 +77,10 @@
             </div> 
             <div class="w-full mt-4 p-10">
       
-    </div>
+          </div>
         </div>
       </form>
+      
            
     </div>
        <div class="info__2 position-absolute">
@@ -104,20 +97,24 @@
             
           
 <script>
+  import Selectanswer from './Selectanswer.vue'
   export default{
     name: 'untitlequiz_page',
+    component: { Selectanswer },
     props: {
     msg: String,
+    
   },
     data () {
       return {
         isHidden: true,
+       
         answers: [
         {
           answerName: "",
         },
          
-      ],
+        ],
       }
     },
     methods: {
@@ -133,8 +130,6 @@
   }
     
       
- 
-    
 
 </script>
 <style lang="scss" scoped>
@@ -154,12 +149,26 @@
     border: 0.5px dashed #C4C4C4;
     padding: 10px 10px;
     margin-top:100px;
+    height: 400px;
+    position: relative;
+    //cursor: pointer;
+    border-radius: 10px;
+
+  }
+  .dropbox-1 {
+    /* the dash box */
+ 
+    //background: #D9D9D9;
+    border: 0.5px dashed #C4C4C4;
+    padding: 10px 10px;
+    margin-top:100px;
     height: 300px;
     position: relative;
     //cursor: pointer;
     border-radius: 10px;
 
     }
+  
   
   .input-file {
     opacity: 0; /* invisible but it's there! */
@@ -187,8 +196,8 @@
         font-weight: 500;
         font-size: 10px;
         width:20%;
-        top:250px;
-        left:490px;
+        top:85px;
+        left:400px;
       }
     }
     .edit-cover_image{
@@ -211,7 +220,7 @@
       font-size: 10px;
       width:20%;
       top:-17px;
-      left:380px;
+      left:350px;
       border-left:1px solid #C4C4C4;
     }
     .set_correctanswer_btn{
@@ -220,9 +229,9 @@
       color:#AFAFAF;
       font-weight: 500;
       font-size: 10px;
-      width:20%;
+      width:22%;
       top:-17px;
-      right:170px;
+      right:137px;
       border-left:1px solid #C4C4C4;
     }
    
@@ -240,8 +249,47 @@
       height:50px;
   
     }
+    .checkbox_bg-1{
+      background: #F7F7F7;
+      border-radius: 10px;
+      height:200px;
+      &_frame{
+        background:#C4C4C4;
+        
+        top:10px;
+        width:80%;
+        height:150px;
+        
+      }
+      &_frame1{
+        background:#C4C4C4;
+        
+        top:10px;
+        width:90%;
+        height:150px;
+        
+      }
+      &_edit{
+        background:#FFFFFF;
+        top:0px;
+        left:70px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 10px;
+        height:20px;
+        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
+        border-radius: 3px 3px 0px 0px;
+      }
+  
+    }
+    
     .checkbox_bg::placeholder{
       padding-left:50px;
+    }
+    .checkbox_bg-1::placeholder{
+      padding-left:50px;
+      padding-top:10px;
     }
     .checkbox_tick{
        padding:30px, 30px
@@ -258,18 +306,76 @@
       width:20%;
       font-size:14px;
       }
+
     }
+    .add_quiz-1{
+      border: 0.5px dashed #C4C4C4;
+      border-radius: 10px;
+      height:60px;
+      &_btn{
+      background: #FFCAD8;
+      border-radius: 10px;
+      color:#3D3D3D;
+     
+      
+      font-size:10px;
+      border-radius:50px;
+      bottom:10px;
+      left:70px;
+
+      }
+      
+    }
+    .answer_option{
+      font-size:15px;
+      bottom:-5px;
+    }
+    
     .info__1{
-      right:100px;
+      right:10px;
     }
     .info__2{
-      right:100px;
+      right:10px;
       bottom:280px;
     }
     .info__3{
       right:100px;
       bottom:130px;
     }
+    .show_image_question{
+       background: #D9D9D9;
+       //height:300px;
+    }
+    /*set correct answer*/
+    #sidebar-no-header{
+     
+      &-title{
+        position:relative;
+        color:#FFFFFF;
+        background:#EF4873;
+        width:320px;
+        margin-left:-20px;
+        margin-top: -20px;
+        &-header{
+//
+        }
+      }
+      .sidebar_content{
+         background:#FFFFFF;
+         
+      }
+      .correct-answer{
+        border-top:0.5px solid #C4C4C4;
+        border-bottom:0.5px solid #C4C4C4
+      }
+      .input-explanation{
+        height:100px;
+        background:#F4F4F4;
+      }
+
+      
+      
+    } 
 
     
 

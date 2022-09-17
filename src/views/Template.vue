@@ -11,15 +11,30 @@
 
                         </div>
                         <div class="mx-3 mt-5 pt-5">
-                            <h4 class="mx-5">What's your goal</h4>
+                            <h4 class="mx-3">What's your goal</h4>
                             <b-nav class="mt-5 template__page__content__nav">
-                                <b-nav-link class="mx-5 template__page__content__nav-item">Browse All</b-nav-link>
-                                <b-nav-link class="mx-5 mt-3 template__page__content__nav-item active">Audience Research</b-nav-link>
-                                <b-nav-link class="mx-5 mt-3 template__page__content__nav-item">General Leads</b-nav-link>
-                                <b-nav-link class="mx-5 mt-3 template__page__content__nav-item">Just for Fun</b-nav-link>
-                                <b-nav-link class="mx-5 mt-3 template__page__content__nav-item">Segment my Audience</b-nav-link>
-                                <b-nav-link class="mx-5 mt-3 v">Test Their Knowledge</b-nav-link>
-                                <b-nav-link class="mx-5 mt-3 template__page__content__nav-item">Start from Scratch</b-nav-link>
+                                <div class="mt-3 template__page__content__nav_link mb-2">
+                                    <b-nav-link class="mx-3 template__page__content__nav-item">Browse All</b-nav-link>
+                                </div>
+                                <div class="mt-3 template__page__content__nav_link mb-2">
+                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">Audience Research</b-nav-link>
+                                 </div>
+                                <div class="mt-3 template__page__content__nav_link mb-2"> 
+                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">General Leads</b-nav-link>
+                                </div>
+                                <div class="mt-3 template__page__content__nav_link mb-2">
+                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">Just for Fun</b-nav-link>
+                                </div>
+                                <div class="mt-3 template__page__content__nav_link mb-2">
+                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">Segment my Audience</b-nav-link>
+                                </div>
+                                <div class="mt-3 template__page__content__nav_link">
+                                    
+                                    <b-nav-link class="mx-3 mt-3">Test Their Knowledge</b-nav-link>
+                                </div>
+                                <div class="mt-3 template__page__content__nav_link">
+                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">Start from Scratch</b-nav-link>
+                                </div>
                                 
                             </b-nav>
                         </div>
@@ -128,7 +143,7 @@
                                      <div class="how_much_btn-container p-5 my-5">
                                         <div class="mt-5">
                                             <b-button class="mt-2 how_much_btn-container_template-btn mb-2">
-                                                Yes Template
+                                                Use Template
                                             </b-button>
                                         </div>
                                         <div class="my-4">
@@ -219,11 +234,14 @@
 </script>
 
 <style lang="scss" scoped>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
     .template__page{
-        
+       
          &__content{
             &__sidebar{
-                 background:#FFFFFF
+                 background:#FFFFFF;
+                 position:sticky;
+                 
             }
             &-header_logo{
                 background:  #313F68;
@@ -231,13 +249,23 @@
                 margin-left:-15px;
                 width:200px;
             }
+            
+            
             &__nav{
                 color:#B8B8B8;
                 font-size:22px;
                 
+                &_link {
+                    &:hover{
+                        
+                    }
+                }
+                
             }
+            
             .active{
-                background: #3B5998;
+                
+
                 
                 
             }
@@ -260,8 +288,8 @@
     }
     .radio_button{
         color: #fff !important;
-    background-color: #28a745 !important;
-    border-color: #28a745 !important;
+        background-color: #28a745 !important;
+        border-color: #28a745 !important;
     }
     .all_quiz_type{
         position:absolute;
@@ -275,6 +303,7 @@
     
     .how_much{
         background:#FFE8EE;
+        cursor:pointer;
         &_header{
             color:#D12551;
             &_quiz-btn{
@@ -289,7 +318,7 @@
                     bottom:0px;
                 }
             }
-            
+             
         }
         &_btn-container{
             background:#F1D9DFF2;
@@ -297,6 +326,7 @@
             width:200px; 
             height:50px;
             background:#EF4873 ;
+            
             border: 1px solid #EF4873;
                 &_white{
                     width:200px;
@@ -307,20 +337,24 @@
                     
                 }
             }
+           
         }
 
         
         
-    }
+    }  
     .epic_container{
         background: #E5ECFF;
+       
+        cursor:pointer;
         &_header{
             color:#313F68;  
             &_epic_btn {
                 background: #344E99;
             }
         }
-
+        
     }
+    
                     
 </style>

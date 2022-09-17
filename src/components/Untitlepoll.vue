@@ -1,16 +1,18 @@
 <template>
     <div class="untitlequiz_page p-2 m-2">
         <div class="untitlequiz_page-header">
-            <h4 class="text-center font-weigh">UNTITLED QUIZ</h4>
+            <h4 class="text-center font-weigh">UNTITLED  POLL</h4>
+        </div>
+        <div class="mt-3">
+            <input 
+                placeholder="Type Your Description Here"
+                class="input_description"
+            />
+        
         </div>
         <div>
-            <div class="info__1 position-absolute" id="tooltip-button-show-event">
-                 <img src="@/assets/images/info (1).png">
-            </div>
-             <b-tooltip ref="tooltip" target="tooltip-button-show-event" placement="bottom">
-                <div class="tooltip_container justify-content-left align-items-left text-left p-3">
-                </div>
-            </b-tooltip>
+            
+            
             <div class="frame">
                 <div class="justify-content-center align-items-center text-center">
                      <div class="edit_coverimage">
@@ -19,7 +21,7 @@
                                 <button type="button" class="edit-cover_image text-center position-absolute" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <img src="@/assets/sidebars/use_image_answer.png" class="mr-2">Edit image
                                 </button>
-                                
+
 
                                 <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -162,35 +164,45 @@
             
          
             </div>
-                <input type="button"  class="input-file" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <p>
-                    <img  height="" src="@/assets/sidebars/Image.png">
-                </p>
+                <div class="d-flex">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="image_frame1 pt-2">
+                            <input type="button"  class="input-file" data-bs-toggle="modal" data-bs-target="#exampleModal" />
+                            <p>
+                                <img  height="" src="@/assets/sidebars/show_question_img_logo.png">
+                            </p>
+                        </div>
+                        <h6 class="text-center">Option A</h6>
+                    </div>
+                     <div class="col-lg-4 col-md-4  ">
+                        <div class="image_frame2 pt-2">
+                            <input type="button"  class="input-file mx-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <p>
+                                <img  height="" src="@/assets/sidebars/show_question_img_logo.png">
+                            </p>
+                        </div>
+                         <h6 class="text-center">Option B</h6>
+                    </div>
+                     <div class="col-lg-4 col-md-4 ">
+                        <div class="image_frame31 pt-2">
+                            <input type="button"  class="input-file" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <p>
+                                <img  height="" src="@/assets/sidebars/show_quetion_img_add_logo.png">
+                            </p>
+                        </div>
+                        <div class="justify-content-center align-items-center text-center">
+                            <b-button  variant="clear"  class="text-center  px-5">ADD</b-button>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
-        <div class="info__2 position-absolute" id="tooltip-button-show-event">
-          <img src="@/assets/images/info (1).png">
-        </div>
-         <b-tooltip ref="tooltip" target="tooltip-button-show-event" placement="bottom">
-            <div class="tooltip_container justify-content-left align-items-left text-left p-3">
-            </div>
-        </b-tooltip>
-        <div class="mt-3">
-            <input 
-            placeholder="Type your description here"
-            class="input_description"
-            />
         
-        </div>
-       <div class="info__3 position-absolute" id="tooltip-button-show-event">
-          <img src="@/assets/images/info (1).png">
-        </div>
-        <b-tooltip ref="tooltip" target="tooltip-button-show-event" placement="bottom">
-            <div class="tooltip_container justify-content-left align-items-left text-left p-3">
-            </div>
-        </b-tooltip>
-        <div class="justify-content-center align-items-center text-center mt-3">
+         
+        
+       
+        <!--div class="justify-content-center align-items-center text-center mt-3">
             <b-button
             to="/question"
             variant="clear"
@@ -200,7 +212,7 @@
             >
             <span class="mx-2">TAKE QUIZ</span>
             </b-button>
-      </div>
+      </div-->
   
 
 
@@ -294,9 +306,9 @@
         } 
         .frame {
 
- 
-            background: #D9D9D9;
-            color: dimgray;
+           // background: #D9D9D9;
+            border: 0.5px dashed #C4C4C4;
+            
             padding: 10px 10px;
             margin-top:20px;
             min-height: 200px; 
@@ -312,21 +324,20 @@
 
         } 
         .input-file {
-            opacity: 0;
-            width: 100%;
+            opacity: 0;  
             height: 200px;
             position: absolute;
             cursor: pointer;
         } 
         .edit-cover_image{
-            background:#F6F6F6;
+             background:#F6F6F6;
             border-radius: 20px;
             color:#AFAFAF;
             font-weight: 500;
             font-size: 15px;
             width:15%;
             top:0px;
-            right:350px;
+            right:400px;
             border:1px solid #F6F6F6;
             
 
@@ -342,12 +353,7 @@
         .input_description::placeholder{
             text-align:center;
         }
-        .take_quiz{
-            background:#EF4873; 
-            border-radius: 10px;
-            color:#FFFFFF;
-            width:25%;
-        }
+       
         .info__1{
             right:10px;
         }
@@ -489,6 +495,13 @@
                 font-weight:500;
                 font-family:'Roboto', sans-serif
             }
+        }
+        .image_frame1, .image_frame2,.image_frame3 {
+            background:#E5E5E5;
+            //margin-left:20px;
+           
+           
+            
         }
         
 

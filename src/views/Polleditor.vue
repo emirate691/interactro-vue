@@ -8,18 +8,20 @@
                 <Navbar />
             </div>
              <div class="pt-5 mt-3">
-                <SideBars />
+                <Pollsidebar />
             </div>
             <div class="container position-absolute untitlequiz col-8">
                 
                 <div class="pt-3 p-5">
-                    <Untitlequizs />
+                    <Untitlepoll />
                 </div>
-                <div class="remove_logo mx-5 position-absolute ">
-                    <img src="@/assets/images/remove logo.png">
-                </div>
-                <div class=" power-by mx-5 position-absolute ">
-                    <img src="@/assets/images/powered by.png">
+                <div class="justify-content-ceter align-items-center text-center">
+                    <div class="remove_logo mx-5 position-absolute  text-center">
+                        <img src="@/assets/images/remove logo.png">
+                    </div>
+                    <div class=" power-by mx-5 position-absolute   text-center">
+                        <img src="@/assets/images/powered by.png">
+                    </div>
                 </div>
             </div>
             
@@ -29,12 +31,12 @@
     </div>
 </template>
 <script>
-    import Untitlequizs from '../components/quiz/Untitlequizs.vue'
-    import SideBars from '../components/SideBars.vue'
+    import Untitlepoll from '../components/Untitlepoll.vue'
+    import Pollsidebar from '../components/Pollsidebar.vue'
     import Navbar from '../components/Navbar.vue'
     export default {
         name: 'Quizeditor',
-        components: { Untitlequizs, SideBars, Navbar }
+        components: { Untitlepoll, Pollsidebar, Navbar }
     }
    
 </script>
@@ -149,12 +151,12 @@
                 left:400px;
             }
             .power-by{
-                right:13px;
+                right:113px;
                 bottom:10px;
             }
             .remove_logo{
                 bottom:65px;
-                right:50px;
+                //right:350px;
             }
             
                 

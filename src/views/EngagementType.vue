@@ -13,6 +13,7 @@
         <div class=" engagement-page_card d-flex justify-content-left  m-5 p-2">
           <b-row class="p-3 mx-auto">
             <b-col class="col-sm-12 col-lg-4 col-md-4 p-3">
+              <router-link to="/dashboard">
               <div class="engagement-page_card_1 m-2">
                 <div class="engagement-page_card_1-image">
                 
@@ -25,30 +26,34 @@
                   
                 </div>
               </div>
+              </router-link>
 
             
             </b-col>
             <b-col class="col-sm-12 col-lg-4 col-md-4 p-3">
-              <div class="engagement-page_card_2 m-2">
-                <div class="engagement-page_card_2-image">
-                  <img class=" engagement-page_card_2-image-polls-bg m-5 p-4" src="@/assets/headers/polls.png" />
+              <router-link to="">
+                <div class="engagement-page_card_2 m-2">
+                  <div class="engagement-page_card_2-image">
+                    <img class=" engagement-page_card_2-image-polls-bg m-5 p-4" src="@/assets/headers/polls.png" />
+                  </div>
+                  <div class=" engagement-page_card_polls justify-content-center align-items-center text-center">
+                    <h6 class="pb-5"> polls</h6>
+                  </div>
                 </div>
-                <div class=" engagement-page_card_polls justify-content-center align-items-center text-center">
-                   <h6 class="pb-5"> polls</h6>
-                </div>
-              </div>
+              </router-link>
 
             </b-col>
             <b-col class="d-flex-block col-sm-12 col-lg-4 col-1 md-4 p-3">
-              <div class="engagement-page_card_2 m-2" col-sm="12">
-                <div class="engagement-page_card_1-image">
-                  <img class="m-5 p-4" src="@/assets/headers/gift-box 1.png" />
+              <router-link to="/giveaways">
+                <div class="engagement-page_card_2 m-2" col-sm="12">
+                  <div class="engagement-page_card_1-image">
+                    <img class="m-5 p-4" src="@/assets/headers/gift-box 1.png" />
+                  </div>
+                  <div class=" engagement-page_card_giveways justify-contentent-center align-items-center text-center font-weight-bolder ">
+                      <h6 class="font-weight-bolder pb-5">Giveaways</h6>
+                  </div>
                 </div>
-                <div class=" engagement-page_card_giveways justify-contentent-center align-items-center text-center font-weight-bolder ">
-                   <h6 class="font-weight-bolder pb-5">Giveaways</h6>
-                </div>
-              </div>
-
+              </router-link>
             </b-col>
               
           </b-row>
@@ -66,6 +71,7 @@ export default {
 </script>
  
 <style lang="scss" scoped>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
 
   .engagement-page{
     background: #F6F6F6;

@@ -13,7 +13,7 @@
             <div class="container position-absolute untitlequiz col-8">
                 
                 <div class="pt-3 p-5">
-                    <Untitlequizs />
+                    <Quizresult />
                 </div>
                 <div class="remove_logo mx-5 position-absolute ">
                     <img src="@/assets/images/remove logo.png">
@@ -29,12 +29,12 @@
     </div>
 </template>
 <script>
-    import Untitlequizs from '../components/quiz/Untitlequizs.vue'
+    import Quizresult from '../components/Quizresult.vue'
     import SideBars from '../components/SideBars.vue'
     import Navbar from '../components/Navbar.vue'
     export default {
         name: 'Quizeditor',
-        components: { Untitlequizs, SideBars, Navbar }
+        components: { Quizresult, SideBars, Navbar }
     }
    
 </script>
