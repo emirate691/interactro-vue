@@ -1,14 +1,14 @@
-
 <template>
 <div>
    <label class="toggle-switch">
-      <input type="checkbox" :checked="isToggled" v-on:change="setToggle()" />
-      <span class="switch" > OFF<span style="padding-left:11px"></span> ON</span>
-      
- 
+      <input type="checkbox" />
+      <span class="switch" v-b-toggle.collapse-2> OFF <span style="padding-left:11px"></span> ON</span>
+
     </label>
+    <b-collapse id="collapse-2">
+      <span class="enable_lead mx-5">ENABLE LEAD GENERATION</span>
+    </b-collapse>
 </div>
-    
 </template>
 
 
@@ -16,7 +16,7 @@
 export default {
   props:['isToggled'],
   data: () => ({
-       
+
   }),
   methods: {
     setToggle(){
@@ -30,16 +30,16 @@ export default {
 .toggle-switch {
     position: relative;
     display: inline-block;
-    width: 55px;
+    width: 60px;
     height: 25px;
-    top:-25px;
-    right:-210px;
+    top:-20px;
+    left:200px;
   }
   .switch{
     color:black;
-    padding-top: 4px;
+    padding-top: 7px;
     font-size: 10px;
-    font-weight:200;
+    font-weight:300;
     text-align: center;
   }
   .toggle-switch input[type="checkbox"] {
@@ -59,20 +59,28 @@ export default {
   .toggle-switch .switch::before {
     position: absolute;
     content: "";
-    left: -5px;
-    top: -1px;
-    right:-12px;
-    width: 18px;
+    left: 1px;
+    top: 1px;
+    width: 23px;
     height: 23px;
     background-color: #eeeef0;
     border-radius: 15%;
     transition: transform 0.3s ease;
   }
   .toggle-switch input[type="checkbox"]:checked + .switch::before {
-    transform: translateX(40px);
-    background-color: #FFFFFF;
+    transform: translateX(35px);
+    background-color: #313F68
   }
   .toggle-switch input[type="checkbox"]:checked + .switch {
     background-color: #dbdcdd;
+  }
+  .enable_lead{
+    position:relative;
+    top:-20px;
+    color:#D9D9D9;
+    font-family: "Roboto, sans-serif";
+    font-weight:500;
+    font-size:12px;
+
   }
 </style>

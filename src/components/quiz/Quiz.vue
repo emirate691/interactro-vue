@@ -1,8 +1,8 @@
 <template>
   <div class="untitlequiz_page p-2 m-2 ">
   
-    <div class="untitlequiz_page-header">
-        <h4 class="text-center font-weight">QUESTION 1</h4>
+    <div class="untitlequiz_page-header p-1">
+        <h4 class="text-center font-weight pt-2">QUESTION 1</h4>
     </div>
     <div class=" show__question justify-content-center align-items-center text-center" id="app">
         <b-button
@@ -185,7 +185,7 @@
     padding: 50px 0;
   }
     .show__question{
-      margin-top:50px;
+      margin-top:55px;
     
       border-top:0.5px dashed #C4C4C4;
       &__image{
@@ -196,7 +196,7 @@
         font-weight: 500;
         font-size: 10px;
         width:20%;
-        top:85px;
+        top:105px;
         left:400px;
       }
     }

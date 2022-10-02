@@ -17,7 +17,7 @@
                             <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                 <div class="accordion-body mt-3">
                                     <div class="mx-5 ">
-                                       <router-link to="/Quizeditor"> <img src="@/assets/sidebars/lette_a.png">  Untitled Quiz </router-link>
+                                       <router-link to="/Quizeditor" style="color:#490819; text-decoration:none"> <img src="@/assets/sidebars/lette_a.png">  Untitled Quiz </router-link>
                                     </div>          
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                                             class="link "
                                             to="/Question"
                                         >
-                                        <img class="pr-2 move__icon" src="@/assets/sidebars/move.png"> <img class="pr-2" src="@/assets/sidebars/question.png">  Question 1 <img class="mx-3 setting__icon" src="@/assets/sidebars/settings.png">
+                                        <img class="pr-2 move__icon" src="@/assets/sidebars/move.png"> <img class="pl-3" src="@/assets/sidebars/question.png">  <span class="mx-2"> Question 1</span> <img class="mx-3 setting__icon" src="@/assets/sidebars/settings.png">
                                         </b-link>
                                     </div>
                                     <div class="mx-4 mt-3">
@@ -44,21 +44,21 @@
                                             class="link mb-2"
                                              @click="addMore()"
                                         >
-                                           <img class="pr-2" src="@/assets/sidebars/plus.png"> ADD NEW QUESTION
+                                           <img class="pl-3" src="@/assets/sidebars/plus.png"> <span class="mx-2">ADD NEW QUESTION</span>
                                         </b-link>
                                     </div>
                                     <div class="mx-4 mt-3">
                                         <b-link
                                             class="link mb-2"
                                         >
-                                           <img class="pr-2" src="@/assets/sidebars/animate__checkbox.png"> ANIMATE CHECKBOX
+                                           <img class="pl-3" src="@/assets/sidebars/animate__checkbox.png"> <span class="mx-2">ANIMATE CHECKBOX</span>
                                         </b-link>
                                     </div>
                                     <div class="mx-4 mt-3">
                                         <b-link
                                             class="link mb-5"
                                         >
-                                           <img class="pr-2" src="@/assets/sidebars/branching.png">  BRANCHING LOGIC
+                                           <img class="pl-3" src="@/assets/sidebars/branching.png"> <span class="mx-2"> BRANCHING LOGIC</span>
                                         </b-link>
                                     </div>
                                 </div>
@@ -77,9 +77,9 @@
                                         <div class="mx-4">
                                         <b-link
                                             class="link "
-                                            to="/Question"
+                                            to="/branch"
                                         >
-                                        <img class="pr-2 move__icon" src="@/assets/sidebars/move.png"> <img class="pr-2" src="@/assets/sidebars/result__image.png">  RESULT 1 <img class="mx-3 setting__icon" src="@/assets/sidebars/settings.png">
+                                        <img class="pr-2 move__icon" src="@/assets/sidebars/move.png"> <img class="pl-3" src="@/assets/sidebars/result__image.png"> <span class="mx-2"> RESULT 1</span> <img class="mx-3 setting__icon" src="@/assets/sidebars/settings.png">
                                         </b-link>
                                     </div>
                                     <div class="mx-4 mt-3">
@@ -87,19 +87,19 @@
                                             class="link mb-2"
                                              @click="addMore()"
                                         >
-                                           <img class="pr-2" src="@/assets/sidebars/plus.png"> ADD NEW RESULT
+                                           <img class="pl-3" src="@/assets/sidebars/plus.png"> <span class="mx-2">ADD NEW RESULT</span>
                                         </b-link>
                                     </div>
                                     <div class="mx-4 mt-3">
                                         <b-link
                                             class="link mb-2"
                                         >
-                                           <img class="pr-2" src="@/assets/sidebars/redirect__image.png"> REDIRECT RESULT
+                                           <img class="pl-3" src="@/assets/sidebars/redirect__image.png"><span class="mx-2"> REDIRECT RESULT</span>
                                         </b-link>
                                     </div>
-                                    <div class="mx-4 mt-3">
+                                    <div class="mx-5 mt-3">
                                         <b-link
-                                            class="link mb-5"
+                                            class="link mb-5 mx-3"
                                         >
                                             BRANCHING LOGIC
                                         </b-link>
@@ -118,7 +118,7 @@
                             
                         </div>
 
-                        <div class="mb-4">
+                        <div class="mb-3">
                             <h2 class="header">
                                 
                                 <img class="pr-2" src="@/assets/sidebars/share.png">SOCIAL SHARE SETTINGS
@@ -199,6 +199,8 @@ export default {
         width:301px;
         margin-top:-110px;
         margin-left:-25px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
         .accordion-collapse {
             border: 0;
         }
@@ -405,11 +407,11 @@ export default {
         }
         .move__icon{
             position: absolute;
-            left:3px;
+            left:18px;
         }
         .setting__icon{
             position: absolute;
-            right:3px;
+            right:7px;
         }
         
     

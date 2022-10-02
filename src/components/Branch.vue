@@ -4,8 +4,8 @@
             <Header />
         </div>
         <div class="p-5 m-5">
-            <div class=" engagement-page_details d-flex justify-content-center align-item-center">
-                <div class="">
+            <div class=" engagement-page_details d-flex justify-content-center align-item-center pt-5">
+                <div class="pt-5">
                     <h3 class="font-weight-bolder mx-3">What type of poll would you like to create?</h3>
                     <p class="text-center">You can change poll type at any time.</p>
                 </div>
@@ -59,14 +59,17 @@ export default {
 </script>
 <style lang="scss" scoped>
     .engagement-page{
-    
     background: #F6F6F6;
+    //position:absolute;  
+    margin-top:-70px;
+   
+
     &_card{
       &_quiz{
         position: relative;
         color:#F6F6F6;
         margin-top:-50px;
-
+        
       }
       &_polls{
         color:#3D3D3D;

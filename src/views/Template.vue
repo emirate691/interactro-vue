@@ -5,43 +5,13 @@
             <div class="template__page__content">
                 
                 <b-row>
-                    <b-col class="template__page__content__sidebar">
-                        <div class="left-block template__page__content-header_logo ">
+                    <div class="template__page__content__sidebar position-fixed">
+                        <div class="left-block template__page__content-header_logo">
                             <img class="mx-5 my-3" src="@/assets/headers/dashboard_logo.png">
 
                         </div>
-                        <div class="mx-3 mt-5 pt-5">
-                            <h4 class="mx-3">What's your goal</h4>
-                            <b-nav class="mt-5 template__page__content__nav">
-                                <div class="mt-3 template__page__content__nav_link mb-2">
-                                    <b-nav-link class="mx-3 template__page__content__nav-item">Browse All</b-nav-link>
-                                </div>
-                                <div class="mt-3 template__page__content__nav_link mb-2">
-                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">Audience Research</b-nav-link>
-                                 </div>
-                                <div class="mt-3 template__page__content__nav_link mb-2"> 
-                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">General Leads</b-nav-link>
-                                </div>
-                                <div class="mt-3 template__page__content__nav_link mb-2">
-                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">Just for Fun</b-nav-link>
-                                </div>
-                                <div class="mt-3 template__page__content__nav_link mb-2">
-                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">Segment my Audience</b-nav-link>
-                                </div>
-                                <div class="mt-3 template__page__content__nav_link">
-                                    
-                                    <b-nav-link class="mx-3 mt-3">Test Their Knowledge</b-nav-link>
-                                </div>
-                                <div class="mt-3 template__page__content__nav_link">
-                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">Start from Scratch</b-nav-link>
-                                </div>
-                                
-                            </b-nav>
-                        </div>
-                    </b-col>
-                    <b-col class="template__page__content__main__content col-9">
-                        <div class="template__page__right-block mx-auto d-flex justify-content-end position-absolute">
-                            <b-dropdown size="lg" variant="clear" right toggle-class="text-decoration-none" no-caret>
+                        <div class="template__page__right-block mx-auto d-flex justify-content-end p-0 m-0  position-relative">
+                            <b-dropdown size="lg" variant="clear" right toggle-class="text-decoration-none" class="position-fixed" no-caret>
                                 <template #button-content>
                                     <b-avatar
                                         size="2rem"
@@ -71,14 +41,52 @@
                             </b-dropdown>
                             <b-dropdown size="lg" variant="clear" right toggle-class="text-decoration-none" class="noti" no-caret>
                                 <template #button-content>
-                                    <img class=""  src="@/assets/icons/notification.svg" alt="">
+                                    <img class="noti"  src="@/assets/icons/notification.svg" alt="">
                                 </template>
                                 <b-dropdown-item href="#">Action</b-dropdown-item>
                                 <b-dropdown-item href="#">Another action</b-dropdown-item>
                             </b-dropdown>
                 
                         </div>
-                        <div class="m-5 p-5">
+                    </div>
+                        
+                    <b-col class="col-3">
+                        <div class="mx-3 mt-5 pt-5 position-fixed w-25">
+                            <h4 class="mx-3">What's your goal</h4>
+                            <b-nav class="mt-5 template__page__content__nav ">
+                                <div class="mt-3 template__page__content__nav_link mb-2">
+                                    <b-nav-link class="mx-3 template__page__content__nav-item ">Browse All</b-nav-link>
+                                </div>
+                                <div class="mt-3 template__page__content__nav_link mb-2">
+                                    <b-nav-link class="mx-3 px-3 mt-3 template__page__content__nav-item">Audience Research</b-nav-link>
+                                 </div>
+                                <div class="mt-3 template__page__content__nav_link mb-2"> 
+                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">General Leads</b-nav-link>
+                                </div>
+                                
+                               
+                                <div class="mt-3 template__page__content__nav_link mb-2">
+                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">Segment my Audience</b-nav-link>
+                                </div>
+                                
+                                 <div class="mt-3 template__page__content__nav_link mb-2">
+                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">Just for Fun</b-nav-link>
+                                </div>
+                                <div class="mt-3 template__page__content__nav_link ">
+                                    
+                                    <b-nav-link class="mx-3 mt-3">Test Their Knowledge</b-nav-link>
+                                </div>
+                                <div class="mt-5 template__page__content__nav_link">
+                                    <b-nav-link class="mx-3 mt-3 template__page__content__nav-item">Start from Scratch</b-nav-link>
+                                </div>
+                                
+                            </b-nav>
+                        </div>
+ 
+                    </b-col>
+                    
+                    <b-col class="template__page__content__main__content justify-content-end pt-5 mt-5 col-9">
+                         <div class="m-5 p-5">
                             <b-row class="">
                                 <b-col class="">
                                     <b-form-label class="font-weight-bolder">
@@ -117,6 +125,19 @@
                         <div class="">
                             <b-row class="justify-content-center align-items-center text-center"> 
                                 <b-col class="">
+                                    <div class="start_quiz_from_scratch text-center">
+                                        <b-button
+                                          to="/quizType"
+                                          class="start_quiz_from_scratch__add_btn  pt-5"
+
+                                         >
+                                         <span class="start_quiz_from_scratch__add_btn__add position-relative">+</span>
+                                         </b-button>
+                                        <h6 class="start_quiz_from_scratch__add_btn__add__heading mt-5">Start From Scratch</h6>
+
+                                    </div>
+                                </b-col>
+                                <b-col class="col-6">
                                     <div class="how_much text-center mt-3">
                                         <h6 class="how_much_header  pt-5">How much do you know about history?</h6>
                                         <div class="mx-5 position-absolute info">
@@ -255,8 +276,13 @@
                 color:#B8B8B8;
                 font-size:22px;
                 
+                
                 &_link {
                     &:hover{
+                        color:red;
+                        background:yellow;
+                       
+                
                         
                     }
                 }
@@ -272,16 +298,17 @@
          }
          
          &__right-block{
-            background: #FFFFFF;
+            //background: #FFFFFF;
             border-radius: 0px 20px 20px 0px;
-            width:300px; 
-            right:0px;  
+            top:-70px;
+            
             
          }
         
     }
     .template__page__content__main__content{
         background:#F6F6F6;   
+        
     }
     .info{
         right:0
@@ -299,6 +326,10 @@
             right:10px;
             top:15px;
         }
+    }
+    .noti{
+        margin-right:-7px;
+       // position:fixed;
     }
     
     .how_much{
@@ -326,7 +357,7 @@
             width:200px; 
             height:50px;
             background:#EF4873 ;
-            
+           
             border: 1px solid #EF4873;
                 &_white{
                     width:200px;
@@ -337,7 +368,7 @@
                     
                 }
             }
-           
+            display:none;
         }
 
         
@@ -354,6 +385,31 @@
             }
         }
         
+        
+    }
+    .epic_container:hover {
+        display:green;
+    }
+    .start_quiz_from_scratch{
+        background:#FFFFFF;
+        margin-top:5px;
+        height:400px;
+        &__add_btn{
+            height:70px;
+            width:70px;
+            border-radius:100%;
+            margin-top:150px;
+            border:1px solid #D12551;
+            background:#D12551;
+            &__add{
+                top:-55px;
+                font-size:50px;
+                &__heading{
+                    font-size:16px;
+                }
+            }
+        }
+    
     }
     
                     

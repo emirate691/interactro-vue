@@ -1,7 +1,7 @@
 <template>
     <div class="untitlequiz_page p-2 m-2">
         <div class="untitlequiz_page-header">
-            <h4 class="text-center font-weigh">UNTITLED QUIZ</h4>
+            <h4 class="text-center font-weigh p-2">UNTITLED QUIZ</h4>
         </div>
         <div>
             <div class="info__1 position-absolute" id="tooltip-button-show-event">
@@ -26,10 +26,13 @@
                                         <div class="modal-content">
                                             
                                           <div>
-                                            <b-tabs  class=" tab-header">
+                                            <b-tabs  class="tab-header" active-nav-item-class="" active-tab-class="font-weight-bold text-success">
                                                
-                                                <b-tab title="Search image" class="tab-header__item">
-                                                    
+                                                <b-tab  class="tab-header__item">
+                                                   <template slot="title">
+                                                     <span class=""><img src="@/assets/icons/tab_search.png"></span>
+                                                     <span class="mx-3">Search Image</span>
+                                                   </template>
                                                    <div class="search_container pt-5 d-flex  justify-content-left align-items-left text-left">
                                                         <form class="search_container__form px-5 py-4 pt-5">
                                                             
@@ -47,7 +50,9 @@
                                                                         class="search_container__btn"
                                                                         variant="clear"
                                                                     >
+                                                                        <span class=""><img src=""> </span>
                                                                         Find Images
+                                                                         
                                                                     </b-button>
                                                                 </div>
                                                                 
@@ -63,8 +68,11 @@
                                                         
                                                     </div>
                                                 </b-tab>
-                                              
-                                                <b-tab title="Upload image" class="tab-header__item">
+                                                <b-tab  class="tab-header__item">
+                                                    <template slot="title">
+                                                        <span class=""><img src="@/assets/icons/Upload.png"></span>
+                                                        <span class="mx-3">Upload image</span>
+                                                    </template>
                                                     <div class="container postion-absolute d-flex justify-content-center align-items-center text-center">
                                                         <div class="">
                                                             <form enctype="multipart/form-data" class=" pt-5 p-5" novalidate v-if="isInitial || isSaving">
@@ -104,7 +112,11 @@
                                                     </div>
 
                                                 </b-tab>
-                                                <b-tab title="URL" class="tab-header__item"> 
+                                                <b-tab  class="tab-header__item"> 
+                                                    <template slot="title">
+                                                        <span class="p-3"><img src="@/assets/icons/Url.png"></span>
+                                                        <span class="mx-3">URL</span>
+                                                    </template>
                                                     <div class="url_container pt-5 d-flex  justify-content-center align-items-center text-center">
                                                         <form class="url_container__form text-center pt-5">
                                                             <div class="justify-content-left align-items-left text-left">
@@ -368,10 +380,17 @@
            
         }
         .tab-header{
-             background: #3E5189;
+            background: #3E5189;
+            height:50px;
+            top:-1px;
+            left:-0.8px;
+            position:absolute;
+            width:100%;
+             
 
              &__item{
-                background:#1B2647;
+                //background:#1B2647;
+                //border-bottom: 1px solid #3E5189;
                  
              }
         }
@@ -489,8 +508,17 @@
                 font-weight:500;
                 font-family:'Roboto', sans-serif
             }
+            
         }
-        
+        active-nav-item-class{
+            margin-left:100px;
+            color:red;
+        }
+        .tab__search{
+            margin-left:-17px;
+            top:0px;
+            background:#EF4873;
+        }
 
     }
 </style>

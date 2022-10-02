@@ -43,6 +43,7 @@ export default {
 </script>
 <style lang="scss" scoped>
     .show__call_action{ 
+       
         
         &_btn{
             background:#FFCAD8;
@@ -54,6 +55,7 @@ export default {
             width:20%;
             bottom:72px;
             left:400px;
+            
         }
          .take_quiz{
             position: relative;

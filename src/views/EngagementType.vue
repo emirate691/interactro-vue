@@ -3,14 +3,14 @@
       <div class="engagement-page_header">
         <Header />
       </div>
-      <div class="p-5 m-5">
-        <div class=" engagement-page_details d-flex justify-content-center align-item-center">
+      <div class="">
+        <div class=" engagement-page_details d-flex justify-content-center align-item-center pt-5">
           <div class="">
-            <h3 class="font-weight-bolder mx-3">Choose Engagement Type</h3>
+            <h3 class="font-weight-bolder pt-5 mx-3">Choose Engagement Type</h3>
             <p class="">Make Your Own Interactive Media Now</p>
           </div>
         </div>
-        <div class=" engagement-page_card d-flex justify-content-left  m-5 p-2">
+        <div class=" engagement-page_card d-flex justify-content-left  m-5 p-5">
           <b-row class="p-3 mx-auto">
             <b-col class="col-sm-12 col-lg-4 col-md-4 p-3">
               <router-link to="/dashboard">
@@ -75,6 +75,7 @@ export default {
 
   .engagement-page{
     background: #F6F6F6;
+    
     &_card{
       &_quiz{
         position: relative;

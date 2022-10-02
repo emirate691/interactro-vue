@@ -2,8 +2,6 @@
   <div id="app">
    
     <router-view></router-view>
-    
-      
   </div>
 
 </template>
@@ -11,15 +9,29 @@
 
 
 export default {
-  name: "App",
- 
+    name: "Home",
+    
+
+    data() {
+      return {
+
+      };
+    },
 }
 </script>
 
-<style scope>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+<style lang="scss" scoped>
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
+
+  .homepage__container {
+    // background-color: #DCDCDC;
+      
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: 'Poppins', sans-serif;
+      .footer__container {
+          margin-top: auto;
+      }
+  }
 </style>

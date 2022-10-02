@@ -126,6 +126,7 @@ export default {
         background:#313F68;
         width:300px;
         border-radius: 0px 20px 20px 0px;
+        border-top-right-radius: 30px;
         
         .accordion-collapse {
         border: 0;

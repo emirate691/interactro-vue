@@ -11,6 +11,7 @@
                 <b-button variant="clear" class="upgrade-btn___link" to="/">
                     <span class=""><img src="@/assets/sidebars/Preview.png"> </span>
                 </b-button>
+
                 
             </div>
             <div class="upgrade-btn mt-2 mx-2">
@@ -20,10 +21,26 @@
                 
             </div>
             <div class="upgrade-btn mt-2 mx-2">
-                <b-button variant="clear" class="upgrade-btn___link" >
+                <b-button variant="clear" class="upgrade-btn___link" v-b-modal.modal-1>
                     <span class=""> <img class="pr-3" src="@/assets/sidebars/publish.png"> PUBLISH</span>
 
                 </b-button>
+                 <b-modal 
+                    id="modal-1" size="lg"
+                    hide-header-close
+                    ok-only
+                    hide-footer="true"
+                    hide-header="true"
+
+                >
+                   <div class="tab">
+                     <vue-tabs>
+                        b
+                    
+                    </vue-tabs>
+                    </div> 
+                    
+                </b-modal>
                 
                 
             </div>
@@ -74,31 +91,38 @@
                 <div class="d-flex col-12">
                     <div class="button_text_section_button-color d-flex block col-5">
                         <span class="mt-2 "> 
-                            <b-button class="background_color mx-4" @click="changeColor"></b-button>
-                            <h6 class="mx-2">Background</h6>
+                            <input type="color" value="#D12551" class="background_color mx-4"
                             
-                        </span>
+
+                            :style="background"
+                             @click="setColor()"
+
+                             />
+                            
+                            <h6 class="mx-2" style="font-size:14px">Background</h6>
+                            
+                        </span> 
                         <span class="mt-2">
-                            <b-button class="option mx-3"></b-button>
+                            <input type="color" value="#EF4873" class="option mx-3" />
                             <h6 class="mx-2">Option</h6>
                         </span>
                         <span class="mt-2">
-                            <b-button class="selection  mx-4"></b-button>
+                            <input type="color"  value="#FFCAD8" class="selection  mx-4" />
                             <h6 class="mx-2">Selection</h6>
                         </span>
                         <span class="mt-2">
-                            <b-button class="progress__bar mx-4"></b-button>
+                            <input type="color" value="#313F68" class="progress__bar mx-4" />
                             <h6 class="mx-2">Progress bar</h6>
                         </span>
                         <span class="mt-2 ">
-                            <b-button class="button mx-2"></b-button>
+                            <input type="color" value="#6379B9" class="button mx-2" />
                             <h6 class="mx-2 ">Button</h6>
                         </span>
                         </div>
                         
                     
                         <div class="col-3 pt-4 section_2">
-                        <span class="pt-5">Quiz Color<img class="mx-2" src="@/assets/sidebars/fill icon.png"> </span>
+                        <span class="pt-5"><h6 class="m"> Quiz Color<img class="mx-3" src="@/assets/sidebars/fill icon.png"></h6> </span>
                         </div>
                         <div class="section-3  pt-3 col-6 px-3">
                             <span class=""><img height="30px" class=" mx-5" src="@/assets/sidebars/Font.png"></span>
@@ -114,21 +138,43 @@
 
 export default {
     name: "Navbar",
-    data(){
+    props: "colors",
+    data () {
         return {
-
+            color:'',
+            background:''
         }
     },
-    methods :{
-        
+    methods: { 
+        setColor(color) {
+            this.$emit(color);
+        }
     }
+    /*data(){
+      return {
+        bg:"#FFFFFF"
+      }
+    },
+    watch :{
+       bg:css_variable_watcher("--bg") 
+    },
     
     
+};
+function css_variable_watcher(name, suffix = "bg") {
+    return {
+        immediate : true,
+        handler(new_value) {
+            documentElement.style.setProperty(name, new_value + suffix);
+        }
+    };*/
 }
+
 </script>
 <style lang="scss" scoped>
 .untitle__page{
             background:#F4F4F4;
+            background-color: var(--bg);
             height:800px;
             
             .right-block{
@@ -142,6 +188,8 @@ export default {
             
                 
             }
+           
+            
             .noti{
                 margin-left:-41px;
             }
@@ -191,42 +239,103 @@ export default {
                    
                 }
                 .background_color{
-                    background:#D12551;
-                    width: 25px;
-                    height: 25px;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance:none;
+                    width:25px;
+                    height:25px;
+                    background-color:transparent;
+                    border:none;
+                    cursor:pointer;
+                    
+                }
+                .background_color::-webkit-color-swatch{
                     border-radius:50%;
-                    font-size:10px;
-                    
-                    
+                    border: 1px solid #D12551;
+                }
+                .background_color::-moz-color-swatch {
+                    border-radius:50%;
+                    border: 1px solid #D12551;
                 }
                 .option{
-                    background:#EF4873;
-                    width: 25px;
-                    height: 25px;
+                    
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance:none;
+                    width:25px;
+                    height:25px;
+                    background-color:transparent;
+                    border:none;
+                    cursor:pointer;
+                }
+                .option::-webkit-color-swatch{
                     border-radius:50%;
+                    border: 1px solid #EF4873;;
+                }
+                .option::-moz-color-swatch {
+                    border-radius:50%;
+                    border: 1px solid #EF4873;;
                 }
                 .selection{
-                    background:#FFCAD8;
+                    
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance:none;
                     width:25px;
-                    height: 25px;
-                    border-radius:50%;
-                    
-                }
-                .progress__bar{
-                    background:#313F68;
-                    width: 25px;
                     height:25px;
-                    border-radius:50%;
-                    
-                    
+                    background-color:transparent;
+                    border:none;
+                    cursor:pointer;
                 }
-                .button{
-                    background:#6379B9;
-                    width: 25px;
-                    height: 25px;
+                .selection::-webkit-color-swatch{
                     border-radius:50%;
+                    border: 1px solid #FFCAD8;
+                }
+                .selection::-moz-color-swatch {
+                    border-radius:50%;
+                    border: 1px solid #FFCAD8;
                 }
                 
+                .progress__bar{
+                    background:#313F68;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance:none;
+                    width:25px;
+                    height:25px;
+                    background-color:transparent;
+                    border:none;
+                    cursor:pointer;
+                    
+                    
+                }
+                .progress__bar::-webkit-color-swatch{
+                    border-radius:50%;
+                    border: 1px solid #313F68;;
+                }
+                .progress__bar::-moz-color-swatch {
+                    border-radius:50%;
+                    border: 1px solid #313F68;;
+                }
+                .button{
+                    
+                   -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance:none;
+                    width:25px;
+                    height:25px;
+                    background-color:transparent;
+                    border:none;
+                    cursor:pointer;
+                }
+                .button::-webkit-color-swatch{
+                    border-radius:50%;
+                    border: 1px solid #6379B9;
+                }
+                .button::-moz-color-swatch {
+                    border-radius:50%;
+                    border: 1px solid #6379B9;
+                }
     
             }
             .untitlequiz{
@@ -249,5 +358,7 @@ export default {
             
            
         }
+       
+       
         
 </style>

@@ -11,16 +11,19 @@ import Dashboard from '@/views/Dashboard.vue'
 import Template from '@/views/Template.vue'
 import Quizeditor from '@/views/Quizeditor.vue'
 import UntitleQuiz from '@/views/UntitleQuiz.vue'
-import Polls from '@/views/Polls.vue'
 import Polleditor from '@/views/Polleditor.vue'
 import Giveaways from '@/views/Giveaways.vue'
 import Result from '@/views/Result.vue'
+import Branch from '@/components/Branch.vue'
+import Giveaway from '@/components/Giveaway.vue'
+import Branches from '@/components/Branches.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
 
   {
-    path: '/home',
+    path: '/',
     name: 'home',
     component: Home,
   },
@@ -43,6 +46,11 @@ const routes = [
     path:'/emailreset',
     name: 'emailreset',
     component: Emailreset
+  },
+  {
+    path:'/branch',
+    name:'branch',
+    component:Branch
   },
   {
     path:'/polleditor',
@@ -81,20 +89,27 @@ const routes = [
     name:'UntitleQuiz',
     components: UntitleQuiz
   },
+ 
   {
-    path:'/polls',
-    name:'Polls',
-    components: Polls
-  },
-  {
-    path: "/giveaways",
-    name: "giveaways",
+    path:'/giveaways',
+    name:'giveaways',
     components:Giveaways
   },
   {
-    path:"/result",
+    path:'/result',
     name:"result",
     components:Result
+  },
+  {
+    path:'/giveaway',
+    name:'giveaway',
+    components:Giveaway
+
+  },
+  {
+    path:'/branches',
+    name:'/branches',
+    components:Branches
   }
   
  ]

@@ -1,6 +1,6 @@
 <template>
     <div class="login__page-container">
-        <b-row class="login__page-container-content pt-0">
+        <b-row class="login__page-container-content pt-0" sm="6">
             <b-col class="login__page-container-content-left mt-0 h-100">
                 <div class="left-block ml-auto pt-3 top ">
                     <div class="pt-5 pl-2 ml-4">
@@ -15,7 +15,7 @@
                     <div class=" text-primary-logo my-5 mx-5">
                         <img src="@/assets/images/Interactro Logo main 1.png" class="pt-5 ml-5 pl-5" />
                         <div class="text pt-5 mx-5 ">
-                            <img src="@/assets/images/Emoji.png" class="ml-5" /><span class="text-1 ml-2 font-weight-bold">Welcome back Goody!</span>
+                            <h4><img src="@/assets/images/Emoji.png" class="ml-5" /><span class="text-1 ml-2">Welcome back Goody!</span></h4>
                             
                         </div>
 
@@ -23,49 +23,61 @@
                     <b-form 
                         class="login__form mx-5"
                         ref="login__form"
-                        @submit.prevent="submitForm"
+                        @submit.stop.prevent="submitForm"
                     >
-                        <b-form-group class="mb-3 ml-5 pl-5">
-                            <b-form-label>
-                                Email
-                             </b-form-label>
+                        <b-form-group class="mb-3 ml-5 pl-5" id="example-input-group-1" label="Email" label-for="example-input-1">
+                           
                             <b-form-input
+                                id="example-input-1"
+                                name="example-input-1"
                                 placeholder="Goodywlson1@outlook.com"
                                 type="email"
                                 class="form__input"
-                                 
+                                v-model="$v.login.email.$model"
+                                :state="validateState('email')"
+                                aria-describedby="input-1-live-feedback"
+
+                                
                             />
                             <b-form-invalid-feedback
                                 id="email-feedback"
+                                :class="{ 'd-block': $v.login.email.$dirty }"
                             >
                             <ul class="m-0 pl-3 list-unstyled">
-                               <li>
+                               <li v-if="!$v.login.email.required || !$v.login.email.email">
                                     Email is required & must be valid 
                                </li>
                             </ul>
                             </b-form-invalid-feedback>
                         </b-form-group>
-                        <b-form-group class="mb-3 ml-5 pl-5 my-4">
-                            <b-form-label>
-                                password
-                            </b-form-label>
+                        <b-form-group class="mb-3 ml-5 pl-5 my-4" id="example-input-group-2" label="Password" label-for="example-input-2"> 
+                            
                             <b-form-input
                                 placeholder="***********"
-                                type="password"
+                                :type="showPassword ? 'text' : 'password'"
                                 class="form__input"
-                                v-model="password"
-                                v-on:click="isHidden = !isHidden"
+
+                                id="example-input-2"
+                                name="example-input-2"
+                                
+                                v-model="$v.login.password.$model"
+                                :state="validateState('password')"
+                                aria-describedby="input-2-live-feedback"
+
+                                                       
                             
                             />
-                            <div class="input_addon" >
+                            <div class="input_addon" @click="showPassword = !showPassword">
                                     <b-icon v-if="showPassword" icon="eye" aria-hidden="true" />
                                     <b-icon v-else icon="eye-slash"    aria-hidden="true" />
                             </div> 
                             <b-form-invalid-feedback
                                 id="email-feedback"
+                                :class="{ 'd-block': $v.login.password.$dirty }"
                             >
                             <ul class="m-0 pl-3 list-unstyled">
                                 <li 
+                                    v-if="!$v.login.password.required"
                                     class="py-1"
                                 >
                                     password is required
@@ -97,7 +109,7 @@
                                     <b-link
                                         class="text-recovery"
                                         
-                                        to="/auth/password-recovery"
+                                        to="passwordRecovery"
                                     >
                                         Reset your password
                                     </b-link>
@@ -135,33 +147,77 @@
     
 </template>
 <script>
-
-//import { required, email } from '@vuelidate/validators'
+import { required} from "vuelidate/lib/validators";
 export default {
-    name: "Login",
-    data : () => ({
-        submitting : false,
-         showPassword: false,
-         password: null
-    }),
-     computed: {
-        buttonLabel() {
-        return (this.showPassword) ? "Hide" : "Show";
-    }
+    name: "LoginForm",
+    data(){
+        
+        return {
+            
+            login: {
+                email: "",
+                password: ""
+            },
+             
+            showPassword:false
+        }
+    },
+    validations: {
+        login: {
+            email: {
+               required
+               
+               
+            },
+            password: {
+               required
+            }
+        }
     },
     methods: {
-        toggleShow() {
-        this.showPassword = !this.showPassword;
+        validateState(login) {
+            const { $dirty, $error } = login;
+            return $dirty ? !$error : null;
+        },
+        async submitForm() {
+            // disable submit button
+            this.submitting = true;
+
+            
+             // validation check
+            this.$v.login.$touch();
+            if (this.$v.login.$anyError) {
+                this.submitting = false;
+            } else {
+                try {
+                    // login user
+                    await this.$store.dispatch('user/login', {data: this.login});
+
+                    // redirect to home page or intended route
+                    this.$router.push(
+                        this.$route.query.redirect ? this.$route.query.redirect : "/"
+                    );
+
+                } catch (err) {
+                    console.log(err);
+                    // enable submit button
+                    this.submitting = false;
+                    // error alert
+                    this.$swal("OOPS!", "Invalid Login Credentials", "error", "OK");
+                }
+            }
+            
+        },
+        handleSocialAuth(type) {
+            console.log('login with --> ', type);
         }
     }
-
-    
 }
-    
-  
-
 </script>
+
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&family=Quando&display=swap');
+
     .login__page-container {
         background: #fff;    
         height: 100%;
@@ -188,6 +244,9 @@ export default {
                 .text-1{
                     position:absolute;
                     margin-left:-100px;
+                    font-family: 'Poppins', sans-serif;
+                    font-weight:600;
+                    font-size:20px;
                 }
 
                 
@@ -197,10 +256,11 @@ export default {
                 
             }
             .input_addon {
-                cursor: pointer;
+               cursor: pointer;
                 position: absolute;
-                right: 23%;
-                top: 385px;
+                right:240px;
+                bottom: 280px;
+                    
                 
             }
             .text-recovery{
@@ -209,6 +269,7 @@ export default {
             .form__input{
                 background: #F8F8F8;
                 width:80%;
+                height:50px;
                 border:1px solid #E4E4E4;
                 border-radius:10px;
             }
@@ -216,7 +277,7 @@ export default {
                 background:#344E99;
                 width:20%;
                 border-radius: 15px;
-;
+
             }
             
         }

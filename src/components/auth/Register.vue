@@ -2,23 +2,29 @@
     <b-container fluid>
         <b-row class="register__page-container h-100">
             <b-col class="register__page-container-content-left vh-100">
-                <div class="left-block ml-auto pt-5 top ">
+                <div class="left-block ml-auto pt-2 top ">
                     <div class="pt-5 pl-2 ml-4">
                         <img src="@/assets/images/Saly-1.png" class="pt-5" />
                         
                     </div>
                     <div class="justify-content-center align-items-center">
-                        <h6 class="pt-2 text-center">View account details</h6> 
-                        <img src="@/assets/icons/view_account_icon.png" height="10px" class=" view__account-icon" />
-                        <div class="view__account-board pt-0  mx-auto">
-                            <div class="view__account-board-details mx-2 mb-5 pt-2">
-                                <b-link https="#" class="mx-3 mt-5  view__account-board-details-link"><img src="@/assets/icons/user.png" height="20px"/><span class="ml-2">Account Details</span></b-link><br>
-                                <b-link https="#" class="mx-3  mb-5  view__account-board-details-link"><img src="@/assets/icons/approval.png"/><span class="ml-2">Make unlimited quizzes</span></b-link><br>
-                                <b-link https="#" class="mx-3  mb-5  view__account-board-details-link"><img src="@/assets/icons/approval.png"/><span class="ml-2">Have unlimited quiz takers</span></b-link><br>
-                                <b-link https="#" class="mx-3 mb-5   view__account-board-details-link"><img src="@/assets/icons/approval.png"/><span class="ml-2">Add quizzes to your website</span></b-link><br>
-                                <b-link https="#" class="mx-3 mb-5   view__account-board-details-link"><img src="@/assets/icons/approval.png"/><span class="ml-2">Share quizzes on social media</span></b-link>
-                                    
+                        <h6 class="pt-2 text-center view-account"  v-on:click="isHidden = !isHidden"
+                        >
+                           <template v-if="isHidden"><span class=""> View account details</span></template>
+                           <template> <img src="@/assets/icons/view_account_icon.png" height="10px" class=" view__account-icon" /></template>
+                        </h6> 
+                        <div class="">
+                           
+                            <div class="view__account-board pt-0  mx-auto" v-if="!isHidden">
+                                <div class="view__account-board-details mx-2 mb-5 pt-2">
+                                    <b-link https="#" class="mx-3 mt-5 view__account-board-details-link"><img src="@/assets/icons/user.png" height="20px"/><span class="ml-2">Account Details</span></b-link><br>
+                                    <b-link https="#" class="mx-3  mb-5   view__account-board-details-link"><img src="@/assets/icons/approval.png"/><span class="ml-2">Make unlimited quizzes</span></b-link><br>
+                                    <b-link https="#" class="mx-3  mb-5 view__account-board-details-link"><img src="@/assets/icons/approval.png"/><span class="ml-2">Have unlimited quiz takers</span></b-link><br>
+                                    <b-link https="#" class="mx-3 mb-5   view__account-board-details-link"><img src="@/assets/icons/approval.png"/><span class="ml-2">Add quizzes to your website</span></b-link><br>
+                                    <b-link https="#" class="mx-3 mb-5   view__account-board-details-link"><img src="@/assets/icons/approval.png"/><span class="ml-2">Share quizzes on social media</span></b-link>
+                                        
 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -27,125 +33,122 @@
             </b-col>
             <b-col class="login__page-content-right h-100 col-8">
                 <div class="right-block  mx-auto">
-                    <div class=" text-primary-logo my-5 mx-5">
-                        <img src="@/assets/images/Interactro Logo main 1.png" class="pt-5 ml-5 pl-5" />
-                        <div class="text pt-5 mx-5 ">
-                            <h5 class="text-1 ml-5 font-weight-bold">Sign Up!</h5>
-                            <b-form 
-                                class="register__form mt-3 mx-5"
-                                @submit.prevent="handleSubmit"
-                            >
-
+                    <div class="text-primary-logo my-5 mx-5">
+                        <img src="@/assets/images/Interactro Logo main 1.png"  height="50px" class="pl-5" />
+                        <div class="text  mx-5 ">
+                            <h5 class="text-1 mt-4">Sign Up!</h5>
+                            <b-form @submit.stop.prevent="onSubmit" class="pt-5">
                                 <b-row>
                                     <b-col>
-                                        <b-form-group>
-                                            <b-form-lable>
-                                                Company name
-                                            </b-form-lable>
-                                            <b-form-input 
-                                                placeholder=""
-                                                type="text"
-                                                class="form__input w-100"
-                                                v-model="register.company_name"
-                                                
-                                            />
+                                        <b-form-group id="example-input-group-1" label="Company name" label-for="example-input-1 font-weight-bold">
+                                            <b-form-input
+                                            id="example-input-1"
+                                            name="example-input-1"
+                                            class="form__input w-100"
+                                            v-model="$v.register.company.$model"
+                                            :state="validateState('company')"
+                                            aria-describedby="input-1-live-feedback"
+                                            ></b-form-input>
+
                                             <b-form-invalid-feedback
-                                                id="email-feedback"
-                                             >
-                                            <ul class="m-0 pl-3 list-unstyled">
-                                                <li class="py-1">
-                                                    company name is require
-                                                </li>
-                                            </ul>
-                                                    
+                                                id="input-1-live-feedback"
+                                                :class="{ 'd-block': $v.register.company.$dirty }"
+                                            >   
+                                                 <ul class="m-0 pl-3 list-unstyled">
+                                                     <li v-if="!$v.register.company.required" class="py-1">
+                                                        company name is require
+                                                    </li>
+                                                </ul>
                                             </b-form-invalid-feedback>
                                         </b-form-group>
                                     </b-col>
                                     <b-col>
-                                        <b-form-group>
-                                            <b-form-label>
-                                                Name
-                                            </b-form-label>
+                                
+
+                                        <b-form-group id="example-input-group-2" label="Name" label-for="example-input-2">
                                             <b-form-input
-                                                type="text"
-                                                class="form__input w-100"
-                                                 v-model="register.name"
-                                                
+                                            id="example-input-2"
+                                            name="example-input-2"
+                                            class="form__input w-100"
+                                            v-model="$v.register.name.$model"
+                                            :state="validateState('name')"
+                                            aria-describedby="input-2-live-feedback"
+                                            ></b-form-input>
 
-
-                                            />
                                             <b-form-invalid-feedback
-                                                id="email-feedback"
-                                                
+                                                id="input-2-live-feedback"
+                                                :class="{ 'd-block': $v.register.name.$dirty }"
                                             >
-                                            <ul class="m-0 pl-3 list-unstyled">
-                                                <li  class="py-1">
-                                                    name is require
-                                                </li>
-                                            </ul>
-                                                    
+                                                <ul class="m-0 pl-3 list-unstyled">
+                                                     <li v-if="!$v.register.name.required" class="py-1">
+                                                         name is require
+                                                    </li>
+                                                </ul>
                                             </b-form-invalid-feedback>
                                         </b-form-group>
                                     </b-col>
                                 </b-row>
                                 <b-row>
                                     <b-col>
-                                        <b-form-group>
-                                            <b-form-label>
-                                                work email
-                                            </b-form-label>
+                                        <b-form-group id="example-input-group-3" label="Work email" label-for="example-input-3">
                                             <b-form-input
-                                                type="email"
+                                                id="example-input-3"
+                                                name="example-input-3"
                                                 class="form__input w-100"
-                                                v-model="register.email"
-                                                
-                                                
-                                            />
-                                            <b-form-invalid-feedback
-                                                id="email-feedback"
-                                                
+                                                v-model="$v.register.email.$model"
+                                                :state="validateState('email')"
+                                                aria-describedby="input-3-live-feedback"
                                             >
-                                            <ul class="m-0 pl-3 list-unstyled">
-                                                <li   class="py-1">
-                                                    enter a valid email
-                                                </li>
-                                                <li  class="py-1">
-                                                    email is already registered
-                                                </li>
-                                            </ul>
-                                                    
+                                            </b-form-input>
+
+                                            <b-form-invalid-feedback
+                                                id="input-2-live-feedback"
+                                                 :class="{ 'd-block': $v.register.email.$dirty }"
+                                            >   
+                                               <ul class="m-0 pl-3 list-unstyled">
+                                                     <li v-if="!$v.register.name.required" class="py-1">
+                                                        email is is require
+                                                    </li>
+                                                    <li  class="py-1">
+                                                        email is already registered
+                                                    </li>
+                                                </ul>
                                             </b-form-invalid-feedback>
                                         </b-form-group>
                                     </b-col>
                                 </b-row>
                                 <b-row>
                                     <b-col>
-                                        <b-form-group>
-                                            <b-form-label>
-                                                Create a password
-                                            </b-form-label>
-                                            <b-form-input 
-                                                type="password"
-                                                class="form__input w-100"
-                                                v-model="register.password"
-                                                
-                                            />
+                                        <b-form-group id="example-input-group-4" label="Create password" label-for="example-input-4">
+                                        <b-form-input
+                                            id="example-input-4"
+                                            name="example-input-4"
+                                            :type="showPassword ? 'text' : 'password'"
+                                            class="form__input w-100"
+                                            v-model="$v.register.password.$model"
+                                            :state="validateState('password')"
+                                            aria-describedby="input-4-live-feedback"
+                                            >
+                                        </b-form-input>
+
                                             <div class="input_addon" @click="showPassword = !showPassword">
                                                 <b-icon v-if="showPassword" icon="eye" aria-hidden="true" />
                                                 <b-icon v-else icon="eye-slash" aria-hidden="true" />
                                             </div> 
                                             <b-form-invalid-feedback
-                                                id="password-feedback"  
-                                               
-                                            >
-                                            <ul class="m-0 pl-3 list-unstyled">
-                                                <li>
-                                                    Password is required: Minimum 8 characters
-                                                </li>
-                                            </ul>
+                                                id="input-4-live-feedback"
+                                                :class="{ 'd-block': $v.register.password.$dirty }"
+                                            >   
+                                                <ul class="m-0 pl-3 list-unstyled">
+                                                     <li v-if="!$v.register.password.required || !$v.register.password.minLength" class="py-1">
+                                                       Password is required: Minimum 8 characters
+                                                    </li>
+                                                </ul>
                                             </b-form-invalid-feedback>
                                         </b-form-group>
                                     </b-col>
+                                
+                            
                                 </b-row>
                                 <b-row>
                                     <b-col>
@@ -158,7 +161,9 @@
                                         >
                                             <b-form-checkbox-group class="m-2">
                                                 <b-form-checkbox
-                                                    v-model="register.accept"                                                    
+                                                    id="terms"
+                                                    class="checkbox"
+                                                    size="lg"
                                                     value="1"
                                                     unchecked-value=""
                                                     
@@ -171,12 +176,13 @@
                                                 </small>
                                                 </b-form-checkbox>
                                                 <b-form-invalid-feedback
-                                                     id="terms-feedback"
+                                                    id="terms-feedback"
+                                                    
                                                                                                           
                                                 >
 
                                                     <ul class="m-0 pl-3 list-unstyled">
-                                                        <li class="py-1">
+                                                        <li  class="py-1">
                                                             Accept Terms of service to proceed
                                                         </li>
                                                     </ul>
@@ -192,7 +198,7 @@
                                         <span class="">Sign up with </span>
                                         <b-button
                                             variant="light"
-                                            class="m-3"
+                                            class="m-3 handleSocialAuth"
                                             @click="handleSocialAuth('google')"
                                         >
                                         <img class="login__form-social" src="@/assets/icons/google 1.svg" />
@@ -200,7 +206,7 @@
                                         <b-button
                                             
                                             variant="light"
-                                            class="m-3 "
+                                            class="m-3 handleSocialAuth"
                                              @click="handleSocialAuth('facebook')"
                                         >
                                             <img  class="login__form-social" src="@/assets/icons/facebook 1.svg" />
@@ -208,24 +214,26 @@
 
                                     </div>
                                 </b-row>
-                                <div class="my-4">
+
+                            
+                            
+                                <div class="">
                                     <b-button 
-                                        
-                                        class="form__btn my-2"  
-                                        @click="registerUser"
+                                        type="submit" variant="clear"
+                                        class="form__btn my-2"
+                                        :disabled="submitting"  
                                     >
-                                        Complete<img class="ml-3" src="@/assets/icons/Arrow 1.svg">
-                                        
+                                       <span class="form__btn-complete"> Complete<img class="ml-3" src="@/assets/icons/Arrow 1.svg"></span>
+
                                     </b-button>
-                                    <small class="ml-3">
+                                    <small class="ml-3 alread-have-an-account">
                                         Already have an account?
-                                        <b-link href="/home" class="text-recovery">
+                                        <b-link href="/" class="text-recovery">
                                             Sign in!
                                         </b-link>
                                     </small>
+                                    
                                 </div>
-                                
-
                             </b-form>
                         </div>
 
@@ -236,65 +244,106 @@
     </b-container>
 </template>
 
+
 <script>
+import { validationMixin } from "vuelidate";
+import { required, minLength } from "vuelidate/lib/validators";
 
-import { required, minLength, email} from 'vuelidate/lib/validators'
 export default {
-    name:'Registerform',
-        data() {
-            return {
-                register: {
-                    company_name: "",
-                    name: "",
-                    email: "",
-                    password: "",
-                    accept: ""
-                },
-                isSubmitted: false
-                };
-            },
-        validations: {
-            register: {
-                company_name: {
-                    required
-                },
-                name: {
-                    required
-                },
-                email: {
-                    required,
-                    email
-                },
-                
-                password: {
-                    required,
-                    minLength: minLength(5)
-                },
-                
-                accept: {
-                    required (val) {
-                      return val
-                    }
-                }
-            }
-        },
-        methods: {
-            handleSubmit() {
-                this.isSubmitted = true;
-
-                if (this.$v.$invalid) {
-                    return;
-                }
-                alert("SUCCESS!" + JSON.stringify(this.register));
-                console.log("submitted")
-            }
-        }
-
+  mixins: [validationMixin],
+  data() {
+    return {
+      
+      register: {
+        company: "",
+        name: "",
+        email:"",
+        password: "",
+        terms: ""
+      },
+      showPassword: false,
+      submitting: false,
+      isHidden: true,
+    };
+  },
+  validations: {
+    register: {
+      
+      company: {
+        required,
+        minLength: minLength(2),
+        
+      },
+      name: {
+        required
+        
+      },
+      email: {
+        required,
+        
+        /*async isUnique (value) {
+            if (value === null|| value.length < 2 ) return true
+            const response = await this.$axios.get(`/unique/email/${value}`)
+            if (response.data.exists) {
+                return false
+            } 
+                return true
+            }*/
+      },
+      password : {
+        required,
+         minLength: minLength(8)
+        
+      },
+      terms: {
+        required
+      }
+    }
     
-}
+  },
+  
+  methods: {
+    validateState(company) {
+      const { $dirty, $error } = this.$v.register[company];
+      return $dirty ? !$error : null;
+    },
+    
+    resetForm() {
+      this.form = {
+        name: null,
+        food: null
+      };
+
+      this.$nextTick(() => {
+        //this.$v.$reset();
+      });
+    },
+    onSubmit() {
+      this.$v.register.$touch();
+     
+      if (this.$v.register.$anyError) {
+       
+        return;
+        
+        
+      }
+      alert("Form submitted!");
+
+      
+    },
+    handleSocialAuth(type) {
+     console.log('login with --> ', type);
+     //alert ('login with -->', type)
+    }
+
+  }
+  
+};
 </script>
 
 <style lang="scss" scope>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&family=Quando&display=swap');
+
     .register__page-container {
         background: #fff;    
         height: 100%;
@@ -309,6 +358,9 @@ export default {
                 h6{
                     color: #fff;
                 }
+                .view-account{
+                    cursor:pointer;
+                }
                 .view__account-icon{
                     position:absolute;
                     left:250px;
@@ -322,6 +374,7 @@ export default {
                     margin-top:20px;
                     &-details{
                         color:#000000;
+                        
                         a{
                             
                             color: #000000;
@@ -331,8 +384,10 @@ export default {
                                 
                             }
                             &:hover{
-                                width: 100%;
+                                //width: 100%;
                                 background: #FFE5EC !important;
+                                padding: 10px 15px;
+                                position: fixed;
                                 
                             }
                             
@@ -348,27 +403,39 @@ export default {
             
 
         }
+        .text-1{
+            font-style: normal;
+            font-weight:700;
+            font-size: 30px;
+
+        }
         .input_addon {
             cursor: pointer;
             position: absolute;
-            right: 5%;
-            top: 35px;
+            right:50px;
+            top: 45px;
                 
         }
 
         .form__input{
             background: #F8F8F8;
-            height:45px;
+            height:55px;
             width:80%;
             border:1px solid #E4E4E4;
             border-radius:10px;
+           
         }
         .form__btn {
             background:#D12551;
             width:25%;
             height:50px;
             border-radius: 15px; 
+            color:#FFFFFF;
             border-radius: 1px solid #D12551;
+            &-complete{
+                font-weight: 400;
+                font-size: 20px;
+            }
             &:hover::after {
                 background-color:#D12551;
             }
@@ -377,233 +444,27 @@ export default {
         .text-recovery{
             color:#D12551;
         }
+        .alread-have-an-account{
+            font-size:20px;
+            
+            font-family:'Poppins, sans-serif'
+        }
+        .handleSocialAuth{
+            background: #FFFFFF;
+            border: 1px solid #DEDEDE;
+            box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+        }
+        .read__agreed{
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 13px;
+            color: #000000;
+        }
+        
 
         
     }
 </style>
 
-<!--template>
-    <div class="container" style="max-width: 500px; text-align: left">
-        <div class="alert alert-success" role="alert">
-            <h2 class="alert-heading">Vue Form Validation Example</h2>
-        </div>
-        <form @submit.prevent="handleSubmit">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" v-model="userForm.name" id="name" name="name" class="form-control"
-                    :class="{ 'is-invalid': isSubmitted && $v.userForm.name.$error }" />
-                <div v-if="isSubmitted && !$v.userForm.name.required" class="invalid-feedback">Name field is required</div>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" v-model="userForm.email" id="email" name="email" class="form-control"
-                    :class="{ 'is-invalid': isSubmitted && $v.userForm.email.$error }" />
-                <div v-if="isSubmitted && $v.userForm.email.$error" class="invalid-feedback">
-                    <span v-if="!$v.userForm.email.required">Email field is required</span>
-                    <span v-if="!$v.userForm.email.email">Please provide valid email</span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="mobile">Mobile</label>
-                <input type="text" v-model="userForm.mobile" id="mobile" name="mobile" class="form-control"
-                    :class="{ 'is-invalid': isSubmitted && $v.userForm.mobile.$error }" />
-                <div v-if="isSubmitted && $v.userForm.mobile.$error" class="invalid-feedback">
-                    <span v-if="!$v.userForm.mobile.required">Mobile field is required</span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="gender">Gender</label>
-                <div class="form-group" :class="{ 'is-invalid': isSubmitted && $v.userForm.gender.$error }">
-                    <div class="form-check form-check-inline" :class="{ 'is-invalid': isSubmitted && $v.userForm.gender.$error }">
-                        <input class="form-check-input" type="radio" name="gender" v-model="userForm.gender" id="gender1" value="male">
-                        <label class="form-check-label" for="gender1">Male</label>
-                    </div>
-                    <div class="form-check form-check-inline" :class="{ 'is-invalid': isSubmitted && $v.userForm.gender.$error }">
-                        <input class="form-check-input" type="radio" name="gender" v-model="userForm.gender" id="gender2" value="female">
-                        <label class="form-check-label" for="gender2">Female</label>
-                    </div>
-                    <div v-if="isSubmitted && $v.userForm.gender.$error" class="invalid-feedback">
-                        <span v-if="!$v.userForm.gender.required">This field is required</span>
-                    </div>                    
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" v-model="userForm.password" id="password" name="password" class="form-control"
-                    :class="{ 'is-invalid': isSubmitted && $v.userForm.password.$error }" />
-                <div v-if="isSubmitted && $v.userForm.password.$error" class="invalid-feedback">
-                    <span v-if="!$v.userForm.password.required">Password field is required</span>
-                    <span v-if="!$v.userForm.password.minLength">Password should be at least 5 characters long</span>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" v-model="userForm.confirmPassword" id="confirmPassword" name="confirmPassword"
-                    class="form-control" :class="{ 'is-invalid': isSubmitted && $v.userForm.confirmPassword.$error }" />
-                <div v-if="isSubmitted && $v.userForm.confirmPassword.$error" class="invalid-feedback">
-                    <span v-if="!$v.userForm.confirmPassword.required">Confirm Password field is required</span>
-                    <span v-else-if="!$v.userForm.confirmPassword.sameAsPassword">Passwords should be matched</span>
-                </div>
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" v-model="userForm.accept" @change="$v.userForm.accept.$touch()" id="accept" class="form-check-input">
-                <label class="form-check-label" :class="{ 'is-invalid': isSubmitted && $v.userForm.accept.$error }" for="accept">Accept terms &nbsp; conditions</label>
-                <div v-if="isSubmitted && $v.userForm.accept.$error" class="invalid-feedback">
-                    <span v-if="!$v.userForm.accept.required">Accept terms and conditions</span>
-                </div>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-danger btn-block">Register</button>
-            </div>
-        </form>
-        
-    </div>
-</template-->
-<!--script>
-    import {
-        required,
-        email,
-        minLength,
-        sameAs
-    } from "vuelidate/lib/validators";
-    export default {
-        data() {
-            return {
-                userForm: {
-                    name: "",
-                    email: "",
-                    mobile: "",
-                    gender: "",
-                    password: "",
-                    confirmPassword: "",
-                    accept: ""
-                },
-                isSubmitted: false
-            };
-        },
-        validations: {
-            userForm: {
-                name: {
-                    required
-                },
-                email: {
-                    required,
-                    email
-                },
-                mobile: {
-                    required
-                },
-                gender: {
-                    required
-                },
-                password: {
-                    required,
-                    minLength: minLength(5)
-                },
-                confirmPassword: {
-                    required,
-                    sameAsPassword: sameAs('password')
-                },
-                accept: {
-                    required (val) {
-                      return val
-                    }
-                }
-            }
-        },
-        methods: {
-            handleSubmit() {
-                this.isSubmitted = true;
-                this.$v.$touch();
-                if (this.$v.$invalid) {
-                    return;
-                }
-                alert("SUCCESS!" + JSON.stringify(this.userForm));
-            }
-        }
-    };
-</script-->
-<!--style lang="scss">
-.form-group > label {
-    font-weight: 600;
-}
-</style-->
-
-
-<!--template>
-    <div class="container pt-5 w-100 bg-primary">
-        <form @submit.prevent="handleSubmit">
-            <span class="">
-                <label>first name</label>
-                <input type="text" class="form-control"  v-model="first_name">
-            </span>
-             <span class="">
-                <label>middle name</label>
-                <input type="text" class="form-control" v-model="middle_name" >
-            </span>
-             <span class="">
-                <label>Last name</label>
-                <input type="text"  class="form-control" v-model="last_name">
-            </span>
-             <span class="">
-                <label>email</label>
-                <input type="email"  class="form-control" v-model="email">
-            </span>
-             <span class="">
-                <label>password</label>
-                <input type="password" class="form-control" v-model="password">
-            </span>
-             <span class="">
-                <label>confirm password</label>
-                <input type="password" class="form-control" v-model="password_confirm">
-            </span>
-            <button class="btn btn-primary btn-block">complete </button>
-        </form>
-    </div>
-</template>
-<script>
-import axios from 'axios'
-export default {
-    name:"Register",
-    data() {
-        return {
-            first_name: '',
-            last_name: '',
-            middle_name: '',
-            email:'',
-            password:'',
-            password_confirm:'',
-        }
-    },
-    methods: {
-        handleSubmit() {
-            const data = {
-                first_name: this.first_name,
-                last_name : this.last_name,
-                middle_name : this.middle_name,
-                email: this.email,
-                password: this.password,
-                confirm_password: this.confirm_password
-
-            };
-            axios.post('http://localhost:8000/register', data)
-
-                .then (
-
-                    res => {
-                        console.log(res)
-                    }
-                ).catch(
-                    err => {
-                        console.log(err)
-                    }
-                )
-           }
-
-    }
-    
-}
-</script>
-<style lang="scss" scoped>
-
-</style-->

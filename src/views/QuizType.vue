@@ -3,15 +3,15 @@
     <div class="engagement-page_header">
         <Header />
     </div>
-    <div class="p-5 m-5">
+    <div class="">
     <div class=" engagement-page_details d-flex justify-content-center align-item-center">
-      <div class="">
-      <h3 class="font-weight-bolder mx-3">What type of quiz would you like to create?</h3>
+      <div class="m-5 p-5">
+      <h3 class="font-weight-bolder mx-3 mt-3">What type of quiz would you like to create?</h3>
       <p class="text-center change">You can change quiz type at any time.</p>
       </div>
     </div>
-    <div class="engagement-page_card d-flex justify-content-left  m-5 p-2">
-      <b-row class="">
+    <div class="engagement-page_card d-flex justify-content-left mx-5 px-5">
+      <b-row class="mx-5 px-5">
         <b-col class="col-sm-12 col-lg-4 col-md-4 p-3 justity-content-center align-items-center text-center">
           <div class="engagement-page_card_1">
             <div class="engagement-page_card_1-image">
@@ -60,31 +60,26 @@
         
       </div>
     </div>
-    <div>
-      <div class="">
-        <Pollsidebar/>
-      </div>
-      
-      <Polleditor />
-    </div>
+   
   </div>
 </template>
 
 <script>
 import Header from '../components/Header.vue'
-import Polleditor from '../views/Polleditor.vue'
-import Pollsidebar from '../components/Pollsidebar.vue'
+
 
 export default {
     name:"EngagementType",
-    components:{ Header, Polleditor,Pollsidebar },
+    components:{ Header},
 }
 </script>
  
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
 
   .engagement-page{
     background: #F6F6F6;
+    margin-top:-5px;
     &_card{
       &_quiz{
         position: relative;
@@ -119,9 +114,11 @@ export default {
       
     p{
       font-size: 13px;
+      font-family: 'Roboto', sans-serif;
     }
     .change{
         font-size: 20px;
+        font-family: 'Roboto', sans-serif;
     }
     .assesment{
         color:#FFFFFF;

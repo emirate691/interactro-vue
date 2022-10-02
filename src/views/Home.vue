@@ -1,7 +1,7 @@
 <template>
     <b-container fluid class="homepage__container p-0 m-0">
         <div>
-           <login />
+           <Login />
         </div>
         
     </b-container>
@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
 
 .homepage__container {
@@ -30,7 +30,7 @@ export default {
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     .footer__container {
         margin-top: auto;
     }
