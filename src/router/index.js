@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue' 
 import Register from '@/components/auth/Register.vue'
+import PasswordRecovery from '@/components/auth/PasswordRecovery.vue'
 import Question from '@/views/Question.vue'
 import EmailVerified from'@/views/EmailVerified.vue'
 import Emailreset from'@/views/Emailreset.vue'
@@ -11,12 +12,12 @@ import Dashboard from '@/views/Dashboard.vue'
 import Template from '@/views/Template.vue'
 import Quizeditor from '@/views/Quizeditor.vue'
 import UntitleQuiz from '@/views/UntitleQuiz.vue'
-import Polleditor from '@/views/Polleditor.vue'
+import Polls from '@/views/Polls.vue'
 import Giveaways from '@/views/Giveaways.vue'
 import Result from '@/views/Result.vue'
 import Branch from '@/components/Branch.vue'
 import Giveaway from '@/components/Giveaway.vue'
-import Branches from '@/components/Branches.vue'
+//import Branches from '@/components/Branches.vue'
 
 Vue.use(VueRouter)
 
@@ -38,6 +39,11 @@ const routes = [
     component: Question
   },
   {
+    path: '/passwordrecovery',
+    name: 'passwordrecovery',
+    components: PasswordRecovery
+  },
+  {
     path:'/emailVerified',
     name: 'emailVerified',
     component: EmailVerified
@@ -47,15 +53,16 @@ const routes = [
     name: 'emailreset',
     component: Emailreset
   },
+
   {
     path:'/branch',
     name:'branch',
     component:Branch
   },
   {
-    path:'/polleditor',
-    name:'polleditor',
-    components:Polleditor
+    path:'/polls',
+    name:'polls',
+    components:Polls
   },
   {
     path:'/engagementType',
@@ -106,11 +113,12 @@ const routes = [
     components:Giveaway
 
   },
-  {
+
+  /*{
     path:'/branches',
     name:'/branches',
     components:Branches
-  }
+  }*/
   
  ]
   

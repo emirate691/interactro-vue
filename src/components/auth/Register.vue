@@ -10,8 +10,8 @@
                     <div class="justify-content-center align-items-center">
                         <h6 class="pt-2 text-center view-account"  v-on:click="isHidden = !isHidden"
                         >
-                           <template v-if="isHidden"><span class=""> View account details</span></template>
-                           <template> <img src="@/assets/icons/view_account_icon.png" height="10px" class=" view__account-icon" /></template>
+                           <template v-if="isHidden"><span class="pt-5"> View account details</span></template>
+                           <template v-else> <img src="@/assets/icons/view_account_icon.png" height="10px" class=" view__account-icon" /></template>
                         </h6> 
                         <div class="">
                            
@@ -40,7 +40,7 @@
                             <b-form @submit.stop.prevent="onSubmit" class="pt-5">
                                 <b-row>
                                     <b-col>
-                                        <b-form-group id="example-input-group-1" label="Company name" label-for="example-input-1 font-weight-bold">
+                                        <b-form-group id="example-input-group-1" label="Company name" label-for="example-input-1 font-weight-bold" class="register_label">
                                             <b-form-input
                                             id="example-input-1"
                                             name="example-input-1"
@@ -65,7 +65,7 @@
                                     <b-col>
                                 
 
-                                        <b-form-group id="example-input-group-2" label="Name" label-for="example-input-2">
+                                        <b-form-group id="example-input-group-2" label="Name" label-for="example-input-2" class="register_label">
                                             <b-form-input
                                             id="example-input-2"
                                             name="example-input-2"
@@ -90,7 +90,7 @@
                                 </b-row>
                                 <b-row>
                                     <b-col>
-                                        <b-form-group id="example-input-group-3" label="Work email" label-for="example-input-3">
+                                        <b-form-group id="example-input-group-3" label="Work email" label-for="example-input-3" class="register_label">
                                             <b-form-input
                                                 id="example-input-3"
                                                 name="example-input-3"
@@ -119,7 +119,7 @@
                                 </b-row>
                                 <b-row>
                                     <b-col>
-                                        <b-form-group id="example-input-group-4" label="Create password" label-for="example-input-4">
+                                        <b-form-group id="example-input-group-4" label="Create password" label-for="example-input-4" class="register_label">
                                         <b-form-input
                                             id="example-input-4"
                                             name="example-input-4"
@@ -247,7 +247,7 @@
 
 <script>
 import { validationMixin } from "vuelidate";
-import { required, minLength } from "vuelidate/lib/validators";
+import { required, minLength,email } from "vuelidate/lib/validators";
 
 export default {
   mixins: [validationMixin],
@@ -280,6 +280,7 @@ export default {
       },
       email: {
         required,
+        email
         
         /*async isUnique (value) {
             if (value === null|| value.length < 2 ) return true
@@ -332,7 +333,7 @@ export default {
       
     },
     handleSocialAuth(type) {
-     console.log('login with --> ', type);
+     console.log('register with --> ', type);
      //alert ('login with -->', type)
     }
 
@@ -462,7 +463,12 @@ export default {
             font-size: 13px;
             color: #000000;
         }
-        
+        .register_label{
+            font-family: 'Poppins';
+            font-weight: 400;
+            font-size:14px;
+
+        }
 
         
     }

@@ -63,9 +63,6 @@
                                 v-model="$v.login.password.$model"
                                 :state="validateState('password')"
                                 aria-describedby="input-2-live-feedback"
-
-                                                       
-                            
                             />
                             <div class="input_addon" @click="showPassword = !showPassword">
                                     <b-icon v-if="showPassword" icon="eye" aria-hidden="true" />
@@ -103,13 +100,13 @@
                                  <img  class="login__form-social" src="@/assets/icons/facebook 1.svg" />
                                 </b-button>
                             </div>
-                            <div class="d-flex justify-content-between ml-5 pl-5 my-4">
-                                <small class="ml-2">
+                            <div class="d-flex justify-content-between pl-2 my-4">
+                                <small class="mx-5  px-5">
                                     Forgot your password?
                                     <b-link
-                                        class="text-recovery"
+                                       class="text-recovery"
                                         
-                                        to="passwordRecovery"
+                                        to="/emailreset"
                                     >
                                         Reset your password
                                     </b-link>
@@ -188,10 +185,10 @@ export default {
             this.$v.login.$touch();
             if (this.$v.login.$anyError) {
                 this.submitting = false;
-            } else {
+            } /*else {
                 try {
                     // login user
-                    await this.$store.dispatch('user/login', {data: this.login});
+                    await this.$store.dispatch('/login', {data: this.login});
 
                     // redirect to home page or intended route
                     this.$router.push(
@@ -205,7 +202,7 @@ export default {
                     // error alert
                     this.$swal("OOPS!", "Invalid Login Credentials", "error", "OK");
                 }
-            }
+            }*/
             
         },
         handleSocialAuth(type) {
@@ -216,7 +213,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&family=Quando&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&family=Quando&display=swap');
 
     .login__page-container {
         background: #fff;    
@@ -259,20 +256,22 @@ export default {
                cursor: pointer;
                 position: absolute;
                 right:240px;
-                bottom: 280px;
+                top: 418px;
                     
                 
             }
+            
             .text-recovery{
                 color:#D12551;
+                
             }
-            .form__input{
-                background: #F8F8F8;
-                width:80%;
-                height:50px;
-                border:1px solid #E4E4E4;
-                border-radius:10px;
-            }
+        .form__input{
+            background: #F8F8F8;
+            width:80%;
+            height:52px;
+            border:1px solid #E4E4E4;
+            border-radius:10px;
+        }
             .form__btn {
                 background:#344E99;
                 width:20%;

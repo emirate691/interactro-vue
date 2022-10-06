@@ -7,7 +7,7 @@
             <div class="header__link mt-4">  
               
                 <router-link class="header__link__quiz mx-3" to="/">Quizzes</router-link>
-                <router-link class="header__link__polls mx-3" to="/">Polls</router-link>
+                <router-link class="header__link__polls mx-3" to="/emailVerified">Polls</router-link>
                 <router-link class="header__link__giveaways mx-3" to="/question">Giveaways</router-link>
         
             </div>
