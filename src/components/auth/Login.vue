@@ -219,6 +219,7 @@ export default {
         background: #fff;    
         height: 100%;
         min-height: 100vh;
+        
         &-content {
         
             height: 100%;

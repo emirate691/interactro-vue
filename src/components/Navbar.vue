@@ -1,26 +1,26 @@
 <template>
     <div class="col-12 position-fixed">    
         <div class="d-flex upgrade">
-            <div class="upgrade-btn-  mt-2 mx-2">
+            <div class="upgrade-btn mt-1 mx-2">
                 <b-button variant="clear" class="upgrade-btn" to="/">
                     <span class=""><img class="pr-3" src="@/assets/sidebars/save file.png">All changes saved</span>
                 </b-button>
                 
             </div>
-            <div class="upgrade-btn  mt-2 mx-2">
+            <div class="upgrade-btn  mt-1 mx-2">
                 <b-button variant="clear" class="upgrade-btn___link" to="/">
                     <span class=""><img src="@/assets/sidebars/Preview.png"> </span>
                 </b-button>
 
                 
             </div>
-            <div class="upgrade-btn mt-2 mx-2">
+            <div class="upgrade-btn mt-1 mx-2">
                 <b-button variant="clear" class="upgrade-btn___link" to="/">
                     <span class=""><img class="pr-3" src="@/assets/sidebars/save_exit.png"> SAVE & EXIT</span>
                 </b-button>
                 
             </div>
-            <div class="upgrade-btn mt-2 mx-2">
+            <div class="upgrade-btn mt-1 mx-2">
                 <b-button variant="clear" class="upgrade-btn___link" v-b-modal.modal-1>
                     <span class=""> <img class="pr-3" src="@/assets/sidebars/publish.png"> PUBLISH</span>
 
@@ -87,51 +87,8 @@
                 </b-dropdown>
 
             </div>
-            <div class="container mt-5 d-flex button_text_section">
-                <div class="d-flex col-12">
-                    <div class="button_text_section_button-color d-flex block col-5">
-                        <span class="mt-2 "> 
-                            <input type="color" value="#D12551" class="background_color mx-4"
-                            
-
-                            :style="background"
-                             @click="setColor()"
-
-                             />
-                            
-                            <h6 class="mx-2" style="font-size:14px">Background</h6>
-                            
-                        </span> 
-                        <span class="mt-2">
-                            <input type="color" value="#EF4873" class="option mx-3" />
-                            <h6 class="mx-2">Option</h6>
-                        </span>
-                        <span class="mt-2">
-                            <input type="color"  value="#FFCAD8" class="selection  mx-4" />
-                            <h6 class="mx-2">Selection</h6>
-                        </span>
-                        <span class="mt-2">
-                            <input type="color" value="#313F68" class="progress__bar mx-4" />
-                            <h6 class="mx-2">Progress bar</h6>
-                        </span>
-                        <span class="mt-2 ">
-                            <input type="color" value="#6379B9" class="button mx-2" />
-                            <h6 class="mx-2 ">Button</h6>
-                        </span>
-                        </div>
-                        
-                    
-                        <div class="col-3 pt-4 section_2">
-                        <span class="pt-5"><h6 class="m"> Quiz Color<img class="mx-3" src="@/assets/sidebars/fill icon.png"></h6> </span>
-                        </div>
-                        <div class="section-3  pt-3 col-6 px-3">
-                            <span class=""><img height="30px" class=" mx-5" src="@/assets/sidebars/Font.png"></span>
-                            <span class=""><img class="" src="@/assets/sidebars/logo__image.png"></span>
-                      </div>
-                
-            </div>
             
-        </div>
+       
     </div>
 </template>
 <script>
@@ -176,15 +133,17 @@ function css_variable_watcher(name, suffix = "bg") {
             background:#F4F4F4;
             background-color: var(--bg);
             height:800px;
+           
             
             .right-block{
                // background:#FFFFFF;
-                border-radius: 0px 20px 20px 0px;
+               // border-radius: 0px 20px 20px 0px;
                 background:#FFFFFF;
                 height:38px;
-            
+                border-radius: 20px 0px 0px 20px;
                 right:0;
                 top:-40px;
+                //transform: matrix(-1, 0, 0, 1, 0, 0);
             
                 
             }
@@ -196,12 +155,14 @@ function css_variable_watcher(name, suffix = "bg") {
             .user{
                 position:relative;
                 top:-23px;
+                
             }
             .upgrade{
                 position:absolute;
                 right:200px;  
                 top:-40px;
                 color:#000000;
+                height:20px;
                 &-btn___link{
                     color:#000000;
                     background:#FFFFFF;
@@ -209,134 +170,6 @@ function css_variable_watcher(name, suffix = "bg") {
                     border:1px solid #FFFFFF;
                 }                
                     
-            }
-            .button_text_section{
-                position:relative;
-                //background:#FFFFFF;
-                left:82px; 
-                top:-30px;
-               
-               
-                &_button-color{
-                    background:#C4C4C4;
-                    margin-left:-30px
-
-                    
-                     
-                }
-               
-                .section_2{
-                    background-color:#E5E5E5;
-                    border-radius: 10px 0px 0px 10px;
-                    
-                    
-                        
-                }
-                .section-3{
-                    background-color:#FFFFFF;
-                    
-                    
-                   
-                }
-                .background_color{
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    appearance:none;
-                    width:25px;
-                    height:25px;
-                    background-color:transparent;
-                    border:none;
-                    cursor:pointer;
-                    
-                }
-                .background_color::-webkit-color-swatch{
-                    border-radius:50%;
-                    border: 1px solid #D12551;
-                }
-                .background_color::-moz-color-swatch {
-                    border-radius:50%;
-                    border: 1px solid #D12551;
-                }
-                .option{
-                    
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    appearance:none;
-                    width:25px;
-                    height:25px;
-                    background-color:transparent;
-                    border:none;
-                    cursor:pointer;
-                }
-                .option::-webkit-color-swatch{
-                    border-radius:50%;
-                    border: 1px solid #EF4873;;
-                }
-                .option::-moz-color-swatch {
-                    border-radius:50%;
-                    border: 1px solid #EF4873;;
-                }
-                .selection{
-                    
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    appearance:none;
-                    width:25px;
-                    height:25px;
-                    background-color:transparent;
-                    border:none;
-                    cursor:pointer;
-                }
-                .selection::-webkit-color-swatch{
-                    border-radius:50%;
-                    border: 1px solid #FFCAD8;
-                }
-                .selection::-moz-color-swatch {
-                    border-radius:50%;
-                    border: 1px solid #FFCAD8;
-                }
-                
-                .progress__bar{
-                    background:#313F68;
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    appearance:none;
-                    width:25px;
-                    height:25px;
-                    background-color:transparent;
-                    border:none;
-                    cursor:pointer;
-                    
-                    
-                }
-                .progress__bar::-webkit-color-swatch{
-                    border-radius:50%;
-                    border: 1px solid #313F68;;
-                }
-                .progress__bar::-moz-color-swatch {
-                    border-radius:50%;
-                    border: 1px solid #313F68;;
-                }
-                .button{
-                    
-                   -webkit-appearance: none;
-                    -moz-appearance: none;
-                    appearance:none;
-                    width:25px;
-                    height:25px;
-                    background-color:transparent;
-                    border:none;
-                    cursor:pointer;
-                }
-                .button::-webkit-color-swatch{
-                    border-radius:50%;
-                    border: 1px solid #6379B9;
-                }
-                .button::-moz-color-swatch {
-                    border-radius:50%;
-                    border: 1px solid #6379B9;
-                }
-    
             }
             .untitlequiz{
                 background:#FFFFFF;

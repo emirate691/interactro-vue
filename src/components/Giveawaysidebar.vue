@@ -18,7 +18,7 @@
                             <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                 <div class="accordion-body">
                                     <div class="mx-5">
-                                       <router-link to="/Quizeditor"> <img src="@/assets/sidebars/lette_a.png">  UNTITLED GIVEAWAY </router-link>
+                                       <router-link to="/Quizeditor" class="thank"> <img src="@/assets/sidebars/lette_a.png">  UNTITLED GIVEAWAY </router-link>
                                     </div>          
                                 </div>
                             </div>
@@ -28,21 +28,23 @@
                         <div class="accordion mb-3">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
-                                    <img class="pr-3" src="@/assets/sidebar/SUCCESS.png">SUCCESS PAGE
+                                    <img class="pr-3" src="@/assets/sidebars/success.png">SUCCESS PAGE
                                 </button>
                             </h2>
-                            <!--div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                 <div class="accordion-body">
-                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                                    <div class="mx-5">
+                                       <router-link to="/" class="thank"> <img src="@/assets/sidebars/lette_a.png" class="" /><span class="mx-2">Thank You For Enteri...</span></router-link>
+                                    </div>
                                 </div>
-                            </div-->
+                            </div>
                         </div>
 
                         <div class="accordion mb-3">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
-                                    <img class="pr-3" src="@/assets/sidebars/envelope.png">LEAD GENERATION
-                                </button>
+                            <h2 class="header">
+                                <!--button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4"-->
+                                    <img class="pr-3" src="@/assets/sidebars/envelope.png">LEAD GENERATION<span class=""><Giveawaytoggle /></span>
+                                <!--/button-->
                             </h2>
                             <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                 <div class="accordion-body">
@@ -72,13 +74,18 @@
             <div class="botton_btn position-absolute justify-content-center align-items-center ">
                     
                 
-                <div class="botton_btn_help position-absolute text-center">
-                     <div class="p-3">
+                <div class="botton_btn_help  text-center">
+                     <div class="mt-3">
                         <img class="" src="@/assets/sidebars/help.png">
                         <span class="ml-2   botton_btn_help_para">HELP</span>
                     </div>
                 </div>
-        
+                <div class="botton_btn_change position-relative pl-3 ">
+                    <div class="mt-3 pt-3">
+                        <img  class="" src="@/assets/sidebars/Swap.png">
+                        <span class="ml-2  botton_btn_change_type">CHANGE QUIZ TYPE</span>
+                    </div>
+                </div>
                         
                 
                     
@@ -94,7 +101,9 @@
         
 </template>
 <script>
+import Giveawaytoggle from '../components/Giveawaytoggle.vue'
 export default {
+    components: { Giveawaytoggle }
     
 }
 </script>
@@ -102,10 +111,11 @@ export default {
 .untitlequiz__page{
     &__sidebar{
         position:fixed;
-        background:#313F68;
+        background:#313F68;  
         width:301px;
-        margin-top:-110px;
-        margin-left:-25px;
+        margin-top:-97px;
+        margin-left:0px;
+        border-radius: 0px 20px 20px;
         .accordion-collapse {
             border: 0;
         }
@@ -247,8 +257,12 @@ export default {
         }
         .botton_btn_help{
             background:#8497CE;
-            left:-12px;
+            left:0px;
             height:45px;
+            top:16px;
+            position:absolute;
+            width: 100px;
+            
         }
         .botton_btn_change{
             background:#6379B9;
@@ -264,6 +278,12 @@ export default {
         .setting__icon{
             position: absolute;
             right:3px;
+        }
+        .thank{
+            color:#490819;
+            font-family:'Roboto', sans-serif;
+            font-weight:400;
+            font-size:13px;
         }
         
     
