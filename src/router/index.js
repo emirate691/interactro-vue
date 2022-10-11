@@ -18,10 +18,31 @@ import Result from '@/views/Result.vue'
 import Branch from '@/components/Branch.vue'
 import Giveaway from '@/components/Giveaway.vue'
 //import Branches from '@/components/Branches.vue'
+import Auth from '@/views/auth/index.vue' 
+import AuthLogin from '@/views/auth/login.vue' 
+import AuthRegister from '@/views/auth/register.vue' 
 
 Vue.use(VueRouter)
 
 const routes = [
+
+  {
+    path: '/auth',
+    redirect: { name: 'auth.login' },
+    component: Auth,
+    children: [
+      {
+        path: 'login',
+        name: 'auth.login',
+        component: AuthLogin,
+      },
+      {
+        path: 'register',
+        name: 'auth.register',
+        component: AuthRegister,
+      },
+    ]
+  },
 
   {
     path: '/',

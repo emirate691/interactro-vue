@@ -1,147 +1,83 @@
 <template>
-    <div class="login__page-container">
-        <b-row class="login__page-container-content pt-0" sm="6">
-            <b-col class="login__page-container-content-left mt-0 h-100">
-                <div class="left-block ml-auto pt-3 top ">
-                    <div class="pt-5 pl-2 ml-4">
-                        <img src="@/assets/images/img1 1.png" class="pt-5" />
-
-                    </div>
+    <b-row class="login__page h-100" align-v="stretch">
+        <img src="@/assets/images/landing_page_img.png" class="d-none d-md-block landing_page_img" />
+        <b-row>
+            <b-col cols="4" class="h-100 d-none d-md-block">
+                <div class="login__page-left-section">
                 </div>
-
             </b-col>
-            <b-col class="login__page-content-right h-100 col-8">
-                <div class="right-block  mx-auto">
-                    <div class=" text-primary-logo my-5 mx-5">
-                        <img src="@/assets/images/Interactro Logo main 1.png" class="pt-5 ml-5 pl-5" />
-                        <div class="text pt-5 mx-5 ">
-                            <h4><img src="@/assets/images/Emoji.png" class="ml-5" /><span class="text-1 ml-2">Welcome back Goody!</span></h4>
-                            
+            <b-col>
+                <div class="d-flex justify-content-center align-items-center h-100">
+                    <div class="login__page-right-section">
+                        <img src="@/assets/images/Interactro Logo main 1.png" class="mb-4" />
+                        <div class="d-flex align-items-center">
+                            <img src="@/assets/images/Emoji.png" class="" />
+                            <h4 class="pl-2">Welcome back Goody!</h4>
                         </div>
-
-                    </div>
-                    <b-form 
-                        class="login__form mx-5"
-                        ref="login__form"
-                        @submit.stop.prevent="submitForm"
-                    >
-                        <b-form-group class="mb-3 ml-5 pl-5" id="example-input-group-1" label="Email" label-for="example-input-1">
-                           
-                            <b-form-input
-                                id="example-input-1"
-                                name="example-input-1"
-                                placeholder="Goodywlson1@outlook.com"
-                                type="email"
-                                class="form__input"
-                                v-model="$v.login.email.$model"
-                                :state="validateState('email')"
-                                aria-describedby="input-1-live-feedback"
-
-                                
-                            />
-                            <b-form-invalid-feedback
-                                id="email-feedback"
-                                :class="{ 'd-block': $v.login.email.$dirty }"
+                        <b-form action="" class="py-5 w-100">
+                            <b-form-group
+                                label="Email"
                             >
-                            <ul class="m-0 pl-3 list-unstyled">
-                               <li v-if="!$v.login.email.required || !$v.login.email.email">
-                                    Email is required & must be valid 
-                               </li>
-                            </ul>
-                            </b-form-invalid-feedback>
-                        </b-form-group>
-                        <b-form-group class="mb-3 ml-5 pl-5 my-4" id="example-input-group-2" label="Password" label-for="example-input-2"> 
-                            
-                            <b-form-input
-                                placeholder="***********"
-                                :type="showPassword ? 'text' : 'password'"
-                                class="form__input"
+                    
+                                <b-form-input
+                                    id="email"
+                                    name="email"
+                                    placeholder="Goodywlson1@outlook.com"
+                                    type="email"
+                                    class="form__input"
+                                />
+                            </b-form-group>
 
-                                id="example-input-2"
-                                name="example-input-2"
-                                
-                                v-model="$v.login.password.$model"
-                                :state="validateState('password')"
-                                aria-describedby="input-2-live-feedback"
-                            />
-                            <div class="input_addon" @click="showPassword = !showPassword">
-                                    <b-icon v-if="showPassword" icon="eye" aria-hidden="true" />
-                                    <b-icon v-else icon="eye-slash"    aria-hidden="true" />
-                            </div> 
-                            <b-form-invalid-feedback
-                                id="email-feedback"
-                                :class="{ 'd-block': $v.login.password.$dirty }"
+                            <b-form-group
+                                label="Password"
+                                class="password_input"
                             >
-                            <ul class="m-0 pl-3 list-unstyled">
-                                <li 
-                                    v-if="!$v.login.password.required"
-                                    class="py-1"
-                                >
-                                    password is required
-                                </li>
-                            </ul>
-                            </b-form-invalid-feedback>
-                        </b-form-group>
+                    
+                                <b-form-input
+                                    :type="showPassword ? 'text' : 'password'"
+                                    id="password"
+                                    name="password"
+                                    class="form__input"
+                                />
+                                <div class="input_addon" @click="showPassword = !showPassword">
+                                    <b-icon :icon="showPassword ? 'eye' : 'eye-slash'" aria-hidden="true" />
+                                </div> 
+                            </b-form-group>
 
-                       <b-row class="">
-                            <div class="">
-                                <span class="ml-5 pl-5 my-4">Sign in with</span>
+                            <b-row>
+                                <b-col cols="8" >
+                                    <div class="mb-3 d-flex justify-content-between align-items-center">
+                                        <span>Sign In With</span>
+                                        <span>
+                                            <img class="" src="@/assets/icons/google 1.svg" />
+                                        </span>
+                                        <span>
+                                            <img  class="" src="@/assets/icons/facebook 1.svg" />
+                                        </span>
+                                    </div>
+                                </b-col>
+                            </b-row>
+                            <div>
+                                <p>Forgotten Password? <a href="#">Reset Your Password</a></p>
+                            </div>
+                            <div class="d-lg-flex d-md-flex-column align-items-center">
                                 <b-button
-                                  variant="light"
-                                  class="m-3"
+                                    variant="danger"
                                 >
-                                <img class="login__form-social" src="@/assets/icons/google 1.svg" />
+                                    Login
+                                    <b-icon icon="arrow-right" />
                                 </b-button>
-
-                                <b-button  
-                                   variant="light"
-                                   class="m-3 "
-                                >
-                                 <img  class="login__form-social" src="@/assets/icons/facebook 1.svg" />
-                                </b-button>
-                            </div>
-                            <div class="d-flex justify-content-between pl-2 my-4">
-                                <small class="mx-5  px-5">
-                                    Forgot your password?
-                                    <b-link
-                                       class="text-recovery"
-                                        
-                                        to="/emailreset"
-                                    >
-                                        Reset your password
-                                    </b-link>
-                                </small>
-                                
+                                <div class="pl-md-4">
+                                    Don't have an account? <b-link href="/auth/register">Sign Up!</b-link>
+                                </div>
                             </div>
 
-                       </b-row>
-                       <div class="ml-5 pl-5 my-4">
-                            <b-button
-                                variant="primary"
-                                type="submit"
-                                class="form__btn my-2 "
-                                :disabled="submitting"
-                            >
-                                Login <img class="ml-3" src="@/assets/icons/Arrow 1.svg">
-                                
-                            </b-button>
-                            <small class="ml-3">
-                                    Don't have an account?
-                                    <b-link href="/register" class="text-recovery">
-                                        Sign up!
-                                    </b-link>
-                                    
-                            </small>
-                       </div>
-                    </b-form>
-
+                        </b-form>
+                    </div>
                 </div>
             </b-col>
-
         </b-row>
-
-    </div>
-    
+    </b-row>
 </template>
 <script>
 import { required} from "vuelidate/lib/validators";
@@ -156,7 +92,7 @@ export default {
                 password: ""
             },
              
-            showPassword:false
+            showPassword: false
         }
     },
     validations: {
@@ -215,72 +151,104 @@ export default {
 <style lang="scss" scoped>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700&family=Quando&display=swap');
 
-    .login__page-container {
-        background: #fff;    
-        height: 100%;
-        min-height: 100vh;
-        
-        &-content {
-        
-            height: 100%;
+    .login__page {
+        position: relative;
+        &-left-section {
+            background-color: #6379B9;
             min-height: 100vh;
-            //@include poppins-font;
-        
-        
-            &-left {
-                height: 450px;
-                background-color:#6379B9;
-                width:20%;
-                
-                
-                .text {
-                    
-                    font-style: normal;
-                    font-weight: normal;
-                    font-family: 'poppin', sans-serif;
-                }
-                .text-1{
-                    position:absolute;
-                    margin-left:-100px;
-                    font-family: 'Poppins', sans-serif;
-                    font-weight:600;
-                    font-size:20px;
-                }
-
-                
-            }
-            &-right {
-                background: #fff;
-                
+        }
+        .landing_page_img {
+            position: absolute;
+            bottom: 0;
+            width: 40em;
+            z-index: 1;
+        }
+        &-right-section  {
+            .password_input {
+                position: relative;
             }
             .input_addon {
                cursor: pointer;
                 position: absolute;
-                right:240px;
-                top: 418px;
-                    
-                
+                right: 1em;
+                bottom: 1em;
             }
-            
-            .text-recovery{
-                color:#D12551;
-                
-            }
+        }
         .form__input{
             background: #F8F8F8;
-            width:80%;
-            height:52px;
-            border:1px solid #E4E4E4;
-            border-radius:10px;
+            width: 100%;
+            height: 52px;
+            border: 1px solid #E4E4E4;
+            border-radius: 10px;
         }
-            .form__btn {
-                background:#344E99;
-                width:20%;
-                border-radius: 15px;
-
-            }
-            
-        }
-        
     }
+
+    // .login__page-container {
+    //     background: #fff;    
+    //     height: 100%;
+    //     min-height: 100vh;
+        
+    //     &-content {
+        
+    //         height: 100%;
+    //         min-height: 100vh;
+    //         //@include poppins-font;
+        
+        
+    //         &-left {
+    //             height: 450px;
+    //             background-color:#6379B9;
+    //             width:20%;
+                
+                
+    //             .text {
+                    
+    //                 font-style: normal;
+    //                 font-weight: normal;
+    //                 font-family: 'poppin', sans-serif;
+    //             }
+    //             .text-1{
+    //                 position:absolute;
+    //                 margin-left:-100px;
+    //                 font-family: 'Poppins', sans-serif;
+    //                 font-weight:600;
+    //                 font-size:20px;
+    //             }
+
+                
+    //         }
+    //         &-right {
+    //             background: #fff;
+                
+    //         }
+    //         .input_addon {
+    //            cursor: pointer;
+    //             position: absolute;
+    //             right:240px;
+    //             top: 418px;
+                    
+                
+    //         }
+            
+    //         .text-recovery{
+    //             color:#D12551;
+                
+    //         }
+    //     .form__input{
+    //         background: #F8F8F8;
+    //         width:80%;
+    //         height:52px;
+    //         border:1px solid #E4E4E4;
+    //         border-radius:10px;
+    //     }
+    //         .form__btn {
+    //             background:#344E99;
+    //             width:20%;
+    //             border-radius: 15px;
+
+    //         }
+            
+    //     }
+        
+    // }
 </style>

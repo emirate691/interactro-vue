@@ -4,7 +4,7 @@
              <b-col class="login__page-container-content-left mt-0 h-100">
                 <div class="left-block ml-auto pt-3 top ">
                     <div class="pt-5 pl-2 ml-4">
-                        <img src="@/assets/images/img1 1.png" class="pt-5" />
+                        <img src="@/assets/images/landing_page_img.png" class="pt-5" />
 
                     </div>
                 </div>
