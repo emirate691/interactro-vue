@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue' 
-import Register from '@/components/auth/Register.vue'
-import PasswordRecovery from '@/components/auth/PasswordRecovery.vue'
+//import Register from '@/components/auth/Register.vue'
+//import PasswordRecovery from '@/components/auth/PasswordRecovery.vue'
 import Question from '@/views/Question.vue'
 import EmailVerified from'@/views/EmailVerified.vue'
 import Emailreset from'@/views/Emailreset.vue'
@@ -21,6 +21,7 @@ import Giveaway from '@/components/Giveaway.vue'
 import Auth from '@/views/auth/index.vue' 
 import AuthLogin from '@/views/auth/login.vue' 
 import AuthRegister from '@/views/auth/register.vue' 
+import AuthPasswordReset from '@/views/auth/passwordreset.vue' 
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,11 @@ const routes = [
         name: 'auth.register',
         component: AuthRegister,
       },
+      {
+        path: 'passwordreset',
+        name: 'auth.passwordreset',
+        component: AuthPasswordReset,
+      },
     ]
   },
 
@@ -49,21 +55,21 @@ const routes = [
     name: 'home',
     component: Home,
   },
-  {
+  /*{
     path:'/register',
     name: 'register',
     component: Register
-  },
+  },*/
   {
     path:'/question',
     name: 'question',
     component: Question
   },
-  {
+ /* {
     path: '/passwordrecovery',
     name: 'passwordrecovery',
     components: PasswordRecovery
-  },
+  },*/
   {
     path:'/emailVerified',
     name: 'emailVerified',

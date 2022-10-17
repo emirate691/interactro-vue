@@ -87,7 +87,7 @@
         <div class="login__page-container-content pt-0" sm="6">
             <div class="login__page-container-content-left mt-0 h-100">
                 <div class="left-block ml-auto">
-                    <div class="">
+                    <div class=""> 
                         <div class="">       
                             <Dashboardheader/>
                      

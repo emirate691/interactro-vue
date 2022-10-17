@@ -1,5 +1,5 @@
 <template>
-    <div class="untitlequiz__page__sidebar vh-100">  
+    <div class="untitlequiz__page__sidebar vh-100" align-v="stretch">  
             <div class="">
                 <router-link to="/">
                     <img  class="m-3 px-3"  src="@/assets/headers/dashboard_logo.png">

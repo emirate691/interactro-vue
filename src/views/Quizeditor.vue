@@ -1,5 +1,5 @@
 <template>
-    <div class="untitlequiz__page d-flex "> 
+    <div class="untitlequiz__page d-flex" align-v="stretch"> 
        
 
         <b-col class="untitle__page">

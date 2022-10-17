@@ -1,5 +1,5 @@
 <template>
-    <b-row class="login__page h-100" align-v="stretch">
+    <b-row class="login__page h-100 w-100" align-v="stretch">
         <img src="@/assets/images/landing_page_img.png" class="d-none d-md-block landing_page_img" />
         <b-row>
             <b-col cols="4" class="h-100 d-none d-md-block">
@@ -14,9 +14,14 @@
                             <img src="@/assets/images/Emoji.png" class="" />
                             <h4 class="pl-2">Welcome back Goody!</h4>
                         </div>
-                        <b-form action="" class="py-5 w-100">
+                        <b-form action="" 
+                            class="py-5 w-100"
+                            ref="login__form"
+                            @submit.prevent="submitForm"
+                            >
                             <b-form-group
                                 label="Email"
+
                             >
                     
                                 <b-form-input
@@ -25,7 +30,19 @@
                                     placeholder="Goodywlson1@outlook.com"
                                     type="email"
                                     class="form__input"
+                                    v-model="$v.login.email.$model"
+                                    :state="validateState($v.login.email)"
                                 />
+                                <b-form-invalid-feedback
+                                    id="email-feedback"
+                                    :class="{ 'd-block': $v.login.email.$dirty }"
+                                >
+                                    <ul class="m-0 pl-3 list-unstyled">
+                                        <li v-if="!$v.login.email.required || !$v.login.email.email" class="py-1">
+                                            Email is required & must be valid
+                                        </li>
+                                    </ul>
+                                </b-form-invalid-feedback>
                             </b-form-group>
 
                             <b-form-group
@@ -38,10 +55,25 @@
                                     id="password"
                                     name="password"
                                     class="form__input"
+                                    v-model="$v.login.password.$model"
+                                    :state="validateState($v.login.password)"
                                 />
                                 <div class="input_addon" @click="showPassword = !showPassword">
                                     <b-icon :icon="showPassword ? 'eye' : 'eye-slash'" aria-hidden="true" />
                                 </div> 
+                                <b-form-invalid-feedback
+                                id="email-feedback"
+                                :class="{ 'd-block': $v.login.password.$dirty }"
+                            >
+                            <ul class="m-0 pl-3 list-unstyled">
+                                <li
+                                    v-if="!$v.login.password.required"
+                                    class="py-1"
+                                >
+                                    Password is required
+                                </li>
+                            </ul>
+                            </b-form-invalid-feedback>
                             </b-form-group>
 
                             <b-row>
@@ -58,17 +90,18 @@
                                 </b-col>
                             </b-row>
                             <div>
-                                <p>Forgotten Password? <a href="#">Reset Your Password</a></p>
+                                <p>Forgotten Password? <b-link href="/auth/passwordreset"><span class="reset">Reset Your Password</span></b-link></p>
                             </div>
                             <div class="d-lg-flex d-md-flex-column align-items-center">
                                 <b-button
-                                    variant="danger"
+                                    variant="clear"
+                                    class="login__btn"
                                 >
                                     Login
                                     <b-icon icon="arrow-right" />
                                 </b-button>
                                 <div class="pl-md-4">
-                                    Don't have an account? <b-link href="/auth/register">Sign Up!</b-link>
+                                    Don't have an account? <b-link href="/auth/register"><span class="sign-up">Sign Up!</span></b-link>
                                 </div>
                             </div>
 
@@ -80,7 +113,7 @@
     </b-row>
 </template>
 <script>
-import { required} from "vuelidate/lib/validators";
+import { required } from "vuelidate/lib/validators";
 export default {
     name: "LoginForm",
     data(){
@@ -98,12 +131,14 @@ export default {
     validations: {
         login: {
             email: {
-               required
+               required,
+               
                
                
             },
             password: {
-               required
+               required,
+               
             }
         }
     },
@@ -180,6 +215,15 @@ export default {
             height: 52px;
             border: 1px solid #E4E4E4;
             border-radius: 10px;
+        }
+        .login__btn{
+            background: #344E99;
+            color:#FFFFFF;
+            border-radius: 15px;
+        }
+        .sign-up, .reset{
+            color: #D12551;
+            text-decoration:none;
         }
     }
 

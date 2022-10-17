@@ -567,7 +567,7 @@
     </div>
 </template-->
 <template>
-  <div class="untitlequiz__page">
+  <div class="untitlequiz__page" align-v="stretch">
    <div class="ri">
     
          <Navbar />

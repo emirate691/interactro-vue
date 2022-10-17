@@ -1,10 +1,10 @@
 <template>
     <div>
-        Register
+        <Register />
     </div>
 </template>
 <script>
-
+import Register from '../../components/auth/Register.vue';
 export default {
     name: "AuthRegister",
 
@@ -13,7 +13,7 @@ export default {
             // 
         }
     },
-    
+    components: { Register }
        
 }
 </script>
