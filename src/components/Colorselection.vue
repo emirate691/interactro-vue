@@ -1,6 +1,6 @@
 <template>
-    <div class="container mt-5 d-flex button_text_section">
-                <div class="d-flex col-12">
+    <div class="container mt-5 d-flex button_text_section" align-v="stretch">
+                <div class="d-flex col-12 cols-lg-12">
                     <div class="button_text_section_button-color d-flex block col-5">
                         <span class="mt-2 "> 
                             <input type="color" value="#D12551" class="background_color mx-4"
@@ -49,7 +49,7 @@
                 position:fixed;
                 //background:#FFFFFF;
                 left:300px;
-                top:10px;
+                top:30px;
                
                
                 &_button-color{

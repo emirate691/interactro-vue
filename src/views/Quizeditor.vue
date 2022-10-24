@@ -1,22 +1,23 @@
-<template>
-    <div class="untitlequiz__page d-flex" align-v="stretch"> 
-       
-
+<!--template>
+    <b-row class="untitlequiz__page h-100  w-100 d-flex" align-v="stretch"> 
+        <b-col cols="12" class="d-flex justify-content-right align-items-right">
+            <Navbar />
+        </b-col>
+                
+        <b-row>
         <b-col class="untitle__page">
            
-            <div class="pt-5">
-                <Navbar />
-            </div>
+            
              <div class="pt-5 mt-3">
                 <SideBars />
             </div>
-            <div class="container position-absolute untitlequiz col-8">
+            <div class="container position-absolute untitlequiz col-sm-12 col-lg-8 col-md-8">
                 
-                <div class="pt-3 p-5">
+                <div class="pt-3 p-5 col-sm-12 col-lg-12 col-md-12">
                     <Untitlequizs />
                 </div>
-                <div class="remove_logo mx-5 position-absolute ">
-                    <img src="@/assets/images/remove logo.png">
+                <div class="remove_logo mx-5 position-absolute  d-none d-md-block">
+                    <img src="@/assets/images/remove logo.png" class="">
                 </div>
                 <div class=" power-by mx-5 position-absolute ">
                     <img src="@/assets/images/powered by.png">
@@ -24,9 +25,32 @@
             </div>
             
         </b-col>
-        
+        </b-row>
             
-    </div>
+    </b-row>
+</template-->
+
+<template>
+    <b-row class="quizpage_editor vh-100 w-100"  align-v="stretch">
+        <b-row>
+            <b-col cols="" class="quizpage_editor-left-section">
+                <div class="">
+                    <SideBars />
+                </div>
+            </b-col>
+            <b-col cols="9" class="quizpage_editor-right-section">
+                <b-row class="">
+                    <div>
+                        <Navbar />
+                    </div>
+                    <div class=" p-5 m-5 quizpage_editor-right-section__untitlequiz">
+                        <Untitlequizs />
+                    </div>
+                </b-row>
+               
+            </b-col>
+        </b-row>
+    </b-row>
 </template>
 <script>
     import Untitlequizs from '../components/quiz/Untitlequizs.vue'
@@ -41,9 +65,9 @@
  <style lang="scss" scoped>
  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
 
-        .untitle__page{
-            background:#F4F4F4;
-            height:800px;
+        /*.untitle__page{
+            
+           
             
             .right-block{
                // background:#FFFFFF;
@@ -160,8 +184,22 @@
                 
             
            
+        }*/
+        
+    .quizpage_editor{
+       position:relative;
+       background-color: #D12551;
+        &-right-section{
+            
+            min-height:100vh;
+            &__untitlequiz {
+                position:absolute;
+                bottom:0;
+
+            }
         }
         
-        
+
+    }   
     
  </style>

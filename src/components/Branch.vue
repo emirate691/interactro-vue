@@ -568,30 +568,30 @@
 </template-->
 <template>
   <div class="untitlequiz__page" align-v="stretch">
-   <div class="ri">
-    
-         <Navbar />
-           
    
-   </div>
     <b-row> 
        
-        <b-col cols="12" md="4">
+        <b-col cols="12" md="3">
           <div class="pt-5 mt-5">
-                  <Giveawaysidebar />
+            <Giveawaysidebar />
           </div>
         </b-col>
-        <b-col cols="12" md="8">
+        <b-col cols="12" md="9" sm="12">
+            <b-row>
+                <Navbar /> 
+            </b-row>
           
-            <div class="pt-5 mt-5">
+            <div class="pt-5 mt-5 color__selection">
                
               <Colorselection />
             </div>
-            <div class="mt-5" >
+           
+           
+            <div class="mt-5">
               <div class="mt-5">
                 <div class="mt-5">
-                  <div class="">
-                    <div class="untitlequiz mt-5">
+                  <div class="p-5 ">
+                    <div class="untitlequiz p-5 mt-5">
                       <div class="untitle__giveaway mx-5">
                         <div class="d-flex justify-content-center align-items-center">
                           <span class="text-center untitle__giveaway__heading">UNTITLED GIVEWAY</span>
@@ -599,8 +599,10 @@
                       </div>
                       <div class="frame mx-5">
                         <input type="button"  class="input-file" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                         <Editcover />
                         <p>
-                          <img  height="" src="@/assets/sidebars/Image.png">
+                          <img height="" src="@/assets/sidebars/Image.png">
+                          
                         </p>
                       </div>
                       <div class="mx-5 mt-3">
@@ -610,39 +612,11 @@
                           <div class="d-flex justify-content-center align-items-center">
                             <span class="text-center heading">Time Left to Enter</span>
                           </div>
+                          
                       </div>
-                      <b-row class="mx-5 px-5 mt-4">
-                        <b-col>
-                          <b-form-group class="counter__label" label="Days">
-                            <div class="counter  mx-5" placeholder="01">
-                                 {{ days % 365 }}
-                            </div>
-                          </b-form-group>
-                        </b-col>
-                        <b-col>
-                          <b-form-group class="counter__label" label="Hours">
-                            <div class="counter  mx-5" placeholder="00"> 
-                                {{ hours % 24 }}
-                            </div>
-                          </b-form-group>
-                        </b-col>
-                        <b-col>
-                          <b-form-group class="counter__label" label="Minutes">
-                            <div class="counter   mx-5" placeholder="00">
-                                {{ minutes % 60 }}
-                            </div>
-                          </b-form-group>
-                        </b-col>
-                        <b-col>
-                          <b-form-group class="counter__label" label="Seconds">
-                            <div class="counter   mx-5" placeholder="00">
-                                 {{ seconds % 60 }}
-                            </div>
-                          </b-form-group>
-                        </b-col>
-
-
-                      </b-row>
+                        <div class="timer p-5">
+                            <Timer />
+                        </div>
                         <b-form>
                             <div class="px-5">
                                 <b-form-group label="Email" class="email mx-5 mt-3 px-5">
@@ -653,18 +627,19 @@
                                 <b-form-input class="email__input" placeholder="Email">
                                 </b-form-input>
                             </div>
-                            <div class="email__check mx-5 mt-3">
+                            <div class="email__check mx-5 mt-5">
                                 <b-form-checkbox-group class="px-5">
                                     <b-form-checkbox class="" size="small"> <span class="email__check__info">I agree to the Terms and Conditions</span></b-form-checkbox>
                                    
                                 </b-form-checkbox-group>
                             </div>
-                            <div class="d-flex justify-content-center align-items-center mt-3">
+                            <div class="d-flex justify-content-center align-items-center mt-5">
                                 <b-button variant="clear" class="btn__click"><span class="btn__click__heading">CLICK TO ENTER</span></b-button>
                             </div>
                           
                         </b-form>
                      </div>
+                     
                      <div class="d-flex justify-content-center align-items-center mt-2">    
                         <div class="remove_logo position-absolute text-center">
                             <img src="@/assets/images/remove logo.png">
@@ -680,7 +655,7 @@
                 </div>
               </div>
             </div>
-
+            
         </b-col>
     </b-row>
     
@@ -691,32 +666,17 @@
     import Giveawaysidebar from '../components/Giveawaysidebar.vue'
     import Navbar from '../components/Navbar.vue'
     import Colorselection from '../components/Colorselection.vue'
+    import Timer from '../components/Timer.vue'
+    import Editcover from '../components/Editcover.vue'
     //import Quizbutton from '../components/Quizbutton.vue'
     //import Quizresult from '../components/Quizresult.vue'
-    import { ref } from '@vue/reactivity'
+    //import { ref } from '@vue/reactivity'
     export default {
         name: 'Quizeditor',
-        components: { Giveawaysidebar, Navbar, Colorselection/*Quizbutton,*/},
-        data() {
-            const days = ref(0);
-            const hours = ref(0);
-            const minutes = ref(0);
-            const seconds = ref(0); 
-            const lunchDate = new Date('30 December 2032');
+        components: { Giveawaysidebar, Navbar, Colorselection, Timer, Editcover/*Quizbutton,*/},
+        data(){
 
-            setInterval(() =>{  
-                const currentDate = new Date();
-                const lunchTime = lunchDate - currentDate;
-
-                seconds.value = parseInt(lunchTime / 1000);
-                minutes.value = parseInt(seconds.value / 60);
-                hours.value = parseInt(minutes.value / 60);
-                days.value = parseInt(days.value / 24)
-
-            }, 1000);
-            return { days, hours, minutes, seconds}
-        },
- 
+        }
 
     }
    
@@ -726,53 +686,33 @@
   
         .untitlequiz__page{
             background:#F4F4F4;
-            height:1300px;
+           // height:1300px;
+            min-height:200vh;
             overflow-x: hidden;
             overflow-y: hidden;
             
             .right-block{
                // background:#FFFFFF;
-                border-radius: 0px 20px 20px 0px;
-                background:#FFFFFF;
-                height:38px;
-            
-                right:0;
-                top:40px;
+               
                 
 
             
                 
             }
-            .noti{
-                margin-left:-41px;
-            }
-            .user{
-                position:relative;
-                top:-23px;
-            }
-            .upgrade{
-                position:absolute;
-                right:200px;  
-                top:-40px;
-                color:#000000;
-                &-btn___link{
-                    color:#000000;
-                    background:#FFFFFF;
-                    font-size:12px;
-                    border:1px solid #FFFFFF;
-                }                
-                    
-            }
+            
+            
             
             .quizbutton{
                 top:-415px;
             }
             .untitlequiz{
                 background:#FFFFFF;
-              
-                min-height:1100px;
-                width:800px;
-                font-family: 'Roboto', sans-serif;
+                //height:800px;
+                //width:800px;
+                height:173vh;
+                font-family:'Roboto', sans-serif;
+                top:100px;
+               
                
                 
                 
@@ -795,19 +735,21 @@
             }
             .power-by{
               
-                bottom:100px;
-                right:450px;
+                bottom:250px;
+                //right:450px;
                 
             }
             .remove_logo{
-                bottom:165px;
-                right:550px;
+                bottom:300px;
+                //right:550px;
                 
 
         
             }
-            .collection__section{
+            .color__selection{
               position:fixed;
+              
+              
               
               
             }
@@ -852,7 +794,7 @@
           background-color:#F6F6F6;
           color:#3D3D3D;
         }
-        .counter{
+        /*.counter{
           top:0;
           width:40%;
           height:40px;
@@ -875,7 +817,7 @@
           font-size:12px;
           font-family:'Roboto', sans-serif;
           margin-top:5px;
-        }
+        }*/
         .email{
           background: #FFFFFF;
           box-shadow: 0px 4px 20px -8px rgba(0, 0, 0, 0.2);
@@ -904,11 +846,12 @@
                     
         }
         .btn__click{
+            position:relative;
             background: #F67899;
             box-shadow: 0px 4px 20px -4px rgba(0, 0, 0, 0.25);
             border-radius: 10px;
             width:250px;
-            margin-top:50px;
+            bottom:0;
             &__heading{
                 font-family: 'Roboto', sans-serif;
                 font-style: normal;
@@ -919,7 +862,7 @@
         }
         .addto__fill{
             right:280px;
-            bottom:20px;
+            bottom:120px;
             background-color:#EF4873;
             background: #EF4873;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);

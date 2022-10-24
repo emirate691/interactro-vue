@@ -1,22 +1,26 @@
 <template>
-    <div class="untitlequiz__page__sidebar vh-100" align-v="stretch">  
-            <div class="">
-                <router-link to="/">
-                    <img  class="m-3 px-3"  src="@/assets/headers/dashboard_logo.png">
-                </router-link>
-            </div>
-            <div class="row mt-5">
-                <div class="col-md-12 col-sm-12 ">
-                    <div class="accordion accordion-flush p-3" id="faqlist">
+    <div class="h-100">
+
+        <div class="untitlequiz__page__sidebar w-25" align-v="stretch">  
+            
+             <router-link to="/"><img  src="@/assets/headers/dashboard_logo.png"  class="mx-5 mt-2"></router-link>
+                    
+                
+            
+            <div  class="h-100 untitlequiz__page__sidebar">
+                <div class="">
+                    <div class="accordion accordion-flush p-3  col-sm-12" id="faqlist">
                         <div class="accordion mb-3">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed"  type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
-                                <img  class="pr-3" src="@/assets/sidebars/cover_image.png"> COVER
+                                <button class="accordion-button collapsed d-flex justify-content-right align-items-right text-right"  type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
+                                    <div class="mx-5">
+                                        <img  class="pr-3" src="@/assets/sidebars/cover_image.png"> COVER
+                                    </div>
                                 </button>
                             </h2>
                             <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                 <div class="accordion-body mt-3">
-                                    <div class="mx-5 ">
+                                    <div class="mx-5">
                                        <router-link to="/Quizeditor" style="color:#490819; text-decoration:none"> <img src="@/assets/sidebars/lette_a.png">  Untitled Quiz </router-link>
                                     </div>          
                                 </div>
@@ -26,12 +30,14 @@
                         <div class="accordion mb-3">
                             <h2 class="accordion-header">
                                 <button class="accordion-button-11 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
-                                    <img class="pr-3" src="@/assets/sidebars/question.png">QUESTIONS
+                                   <div class="mx-5"> 
+                                        <img class="pr-3" src="@/assets/sidebars/question.png">QUESTIONS
+                                   </div>
                                 </button>
                             </h2> 
                             <div id="faq-content-2" class="accordion-collapse-1 collapse" data-bs-parent="#faqlist">
                                 <div class="accordion-body-1">
-                                    <div class="mx-4">
+                                    <div class="mx-5">
                                         <b-link
                                             class="link "
                                             to="/Question"
@@ -68,13 +74,15 @@
                         <div class="accordion mb-3">
                             <h2 class="accordion-header">
                                 <button class="accordion-button-1 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
-                                    <img class="pr-3" src="@/assets/sidebars/result__image.png">RESULTS
+                                    <div class="mx-5">
+                                      <img class="pr-3 accordion-button-1__img" src="@/assets/sidebars/result__image.png">RESULTS
+                                    </div>
                                 </button>
                             </h2>
                             <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                 <div class="accordion-body-1">
                                     <div class="">
-                                        <div class="mx-4">
+                                        <div class="mx-5">
                                         <b-link
                                             class="link "
                                             to="/branch"
@@ -111,25 +119,29 @@
 
                         <div class="mb-3 mt-4">
                             <h2 class="header">
-                                <!--button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4"-->
+                                <div class="mx-5">
+                                
                                     <img class="pr-3" src="@/assets/sidebars/envelope.png">LEAD GENERATION<span class="pt-1"> <Toggle /></span>
-                                <!--/button-->
+                                </div>
                             </h2>
                             
                         </div>
 
                         <div class="mb-3">
                             <h2 class="header">
+                                <div class="mx-5">
                                 
-                                <img class="pr-2" src="@/assets/sidebars/share.png">SOCIAL SHARE SETTINGS
+                                    <img class="pr-2" src="@/assets/sidebars/share.png">SOCIAL SHARE SETTINGS
+                                </div>
                                 
                             </h2>
                             
                         </div>
                         <div class="">
                             <h2 class="header">
-                                
+                                <div class="mx-5">
                                     <img class="pr-2" src="@/assets/sidebars/Tracking.png"> CONVERSION TRACKING
+                                </div>
                                 
                             </h2>
                             
@@ -158,9 +170,9 @@
                     
 
             </div>
-            
+        </div>   
 
-        </div>  
+    </div>  
     
 
         
@@ -196,18 +208,20 @@ export default {
     &__sidebar{
         position:fixed;
         background:#313F68;
-        width:301px;
-        margin-top:-110px;
-        margin-left:-25px;
+        min-height:100vh;
+        
+        //margin-top:-110px;
+        //margin-left:-25px;
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
         .accordion-collapse {
             border: 0;
         }
+    
         .accordion-button {
             padding: 0px;
             font-weight: bold;
-            border: 0;
+            border: 0; 
             font-size: 16px;
             color:#AFAFAF;
             text-align: left;
@@ -245,21 +259,28 @@ export default {
             color: #FFFFFF;
             //background: #EF4873;
             position:relative;
-            left:-15px; 
-            padding:20px;
-            width:300px;
+            left:-28px; 
+            //padding:20px;
+            width:390px;
+            height:50px;
             
-          
             
+        }
+        .accordion-button-1__img:not(.collapsed) {
+            //background-color: red;
+            position: inherit;
+            
+
         }
          .accordion-button-11:not(.collapsed) {
             background:#EF4873;
             color: #FFFFFF;
             //background: #EF4873;
             position:relative;
-            left:-15px; 
-            padding:20px;
-            width:300px;
+            left:-28px; 
+            //padding:20px;
+            width:390px;
+             height:50px;
           
             
         }
@@ -272,8 +293,8 @@ export default {
             padding: 8px;
             background:#EF4873;
             position:relative;
-            left:-15px; 
-            width:300px;   
+            left:-28px; 
+            width:390px;   
             text-decoration:none
             
         }
@@ -281,8 +302,8 @@ export default {
             background:#243052;
             padding: 8px;
             position:relative;
-            left:-15px; 
-            width:300px;  
+            left:-28px; 
+            width:390px;  
             
             
         }
@@ -317,7 +338,7 @@ export default {
             color: #AFAFAF;
             transform: translateY(-4px);
             position:absolute;
-            right:30px;
+            right:20px;
            
         }
         .accordion-button-11::after {
@@ -334,7 +355,7 @@ export default {
             color: #AFAFAF;
             transform: translateY(-4px);
             position:absolute;
-            right:30px;
+            right:20px;
            
         }
         .accordion-button:not(.collapsed)::after {
@@ -347,16 +368,17 @@ export default {
             
             transform: translate(-5px, -4px);
             transform: rotate(0deg);
+            
         }
            
             .link{
-            color:#C4C4C4;
-            font-weight: 400;
-            font-size: 12px;
-            background:#243052;
-           text-decoration:none;
+                color:#C4C4C4;
+                font-weight: 400;
+                font-size: 12px;
+                background:#243052;
+                text-decoration:none;
             
-        }
+            }
         .accordion-button-1:not(.collapsed)::after {
             width: 25px;
             height:25px;
@@ -367,7 +389,7 @@ export default {
             transform: translate(-5px, -4px);
             transform: rotate(0deg);
             position:absolute;
-            right:15px;
+            right:20px;
 
         }
         .accordion-button-11:not(.collapsed)::after {
@@ -380,7 +402,7 @@ export default {
             transform: translate(-5px, -4px);
             transform: rotate(0deg);
             position:absolute;
-            right:15px;
+            right:20px;
 
         }
         .header{
@@ -395,7 +417,7 @@ export default {
         }
         .botton_btn_help{
             background:#8497CE;
-            left:-12px;
+            //left:-12px;
             height:45px;
         }
         .botton_btn_change{
@@ -419,3 +441,35 @@ export default {
 }
 
 </style>
+<!--template>
+    <b-row class=" sidebar__page h-100" align-v="stretch">
+       
+        <b-row>
+            <b-col col="4" class="h-100">
+                <div class="sidebar__page-left-section">
+                    <img  src="@/assets/headers/dashboard_logo.png" class="dashboard__logo">
+                </div>
+            </b-col>
+            
+        </b-row>
+    </b-row>
+</template>
+<style  lang="scss" scoped>
+    .sidebar__page {
+        position:relative;
+       
+        &-left-section{
+            position:fixed;
+            background-color:#313F68;
+           
+        }
+        .dashboard__logo {
+            position:fixed;
+            top:7px;
+            width: 10em;
+            z-index: 1;
+        }
+
+    }
+
+</style-->

@@ -117,7 +117,7 @@ export default {
         margin-left:0px;
         border-radius: 0px 20px 20px;
         .accordion-collapse {
-            border: 0;
+        border: 0;
         }
         .accordion-button {
             padding: 0px;
@@ -173,47 +173,55 @@ export default {
         }
         
         .accordion-button::after {
-            width: auto;
-            height: auto;
+            //width: auto;
+            //height: auto;
             content: "+";
-            font-size: 40px;
+            font-size: 20px;
             background-image: none;
-            
-            
+            width:25px;
+            height:25px;
+            padding: 0px;
+            border-radius:100%;
+            border: 1px solid #AFAFAF;
             font-weight: 100;
             color: #AFAFAF;
+            text-align:center;
             transform: translateY(-4px);
         }
         .accordion-button-1::after {
-            width: auto;
-            height: auto;
+            //width: auto;
+            //height: auto;
             content: "+";
             font-size: 40px;
             background-image: none;
-            
+            width:25px;
+            height:25px;
+           // padding: 0px;
+            border-radius:100%;
+            border: 1px solid #AFAFAF;
             font-weight: 100;
             color: #AFAFAF;
             transform: translateY(-4px);
         }
         .accordion-button:not(.collapsed)::after {
-            width: auto;
-            height:auto;
+            
             
             content: "-";
-            font-size: 48px;
+            font-size: 20px;
             color: #F6F6F6;
             
             transform: translate(-5px, -4px);
             transform: rotate(0deg);
         }
             .accordion-button:not(.collapsed)::after {
-            width: auto;
-            height:auto;
-            
+           
+            width: 25px;
+            height: 25px;
+            border: 1px solid #FFFFFF;
             content: "-";
-            font-size: 48px;
+            font-size: 20px;
             color: #F6F6F6;
-            
+            text-align: center;
             transform: translate(-5px, -4px);
             transform: rotate(0deg);
         }

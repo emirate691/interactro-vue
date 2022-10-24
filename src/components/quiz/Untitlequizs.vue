@@ -15,7 +15,7 @@
                 <div class="justify-content-center align-items-center text-center">
                      <div class="edit_coverimage">
                         <div class="edit_coverimage__header">
-                            <div class="edit_coverimage__search-container">
+                            <div class="edit_coverimage__search-container col-sm-6 col-md-12">
                                 <button type="button" class="edit-cover_image text-center position-absolute" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <img src="@/assets/sidebars/use_image_answer.png" class="mr-2">Edit image
                                 </button>
@@ -117,45 +117,45 @@
                                                         <span class="p-3"><img src="@/assets/icons/Url.png"></span>
                                                         <span class="mx-3">URL</span>
                                                     </template>
-                                                    <div class="url_container pt-5 d-flex  justify-content-center align-items-center text-center">
-                                                        <form class="url_container__form text-center pt-5">
+                                                <div class="url_container pt-5 d-flex  justify-content-center align-items-center text-center">
+                                                    <form class="url_container__form text-center pt-5">
+                                                        <div class="justify-content-left align-items-left text-left">
+                                                            <h5 class="url_container__heading text-left">Image from the web</h5>
+                                                        </div>
+                                                        <div class="url_container__box">
                                                             <div class="justify-content-left align-items-left text-left">
-                                                                <h5 class="url_container__heading text-left">Image from the web</h5>
-                                                            </div>
-                                                            <div class="url_container__box">
-                                                                <div class="justify-content-left align-items-left text-left">
-                                                                    <div class="pt-3">
-                                                                        <p class=" url_container__para position-relative text-left p-3">Note: This image can not be edited - this is a direct link to the URL</p>
-                                                                        </div>
-                                                                        <b-input-group class="url__input p-3 pb-5 ">
-                                                                        <template #prepend>
-                                                                            <b-input-group-text  class="url_container_bg"><img src="@/assets/icons/Url.png" height="20px"></b-input-group-text>
-                                                                        </template>
-                                                                        <b-form-input placeholder="Enter image URL ...."></b-form-input>
-                                                                    </b-input-group>
-                                                                    <b-button 
-                                                                        variant="clear"
-                                                                        class="m-3 save-btn mt-5"
-                                                                    >
-                                                                        SAVE IMAGE
-                                                                    </b-button>
-                                                                </div>
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class=" position-absolute text-left mt-3 text-white">
-                                                                <div class="upload_auth mt-2">
-                                                                    <span class="">Recommended dimensions:</span>
-                                                                    <span class="mx-5 px-3 justify-content-left">  900px by 400px</span>
-                                                                </div>
+                                                                <div class="pt-3">
+                                                                    <p class=" url_container__para position-relative text-left p-3">Note: This image can not be edited - this is a direct link to the URL</p>
+                                                                    </div>
+                                                                    <b-input-group class="url__input p-3 pb-5 ">
+                                                                    <template #prepend>
+                                                                        <b-input-group-text  class="url_container_bg"><img src="@/assets/icons/Url.png" height="20px"></b-input-group-text>
+                                                                    </template>
+                                                                    <b-form-input placeholder="Enter image URL ...."></b-form-input>
+                                                                </b-input-group>
+                                                                <b-button 
+                                                                    variant="clear"
+                                                                    class="m-3 save-btn mt-5"
+                                                                >
+                                                                    SAVE IMAGE
+                                                                </b-button>
                                                             </div>
                                                             
-                                                        </form>
-                                                        <div>
-                                                           
+                                                            
+                                                        </div>
+                                                        <div class=" position-absolute text-left mt-3 text-white">
+                                                            <div class="upload_auth mt-2">
+                                                                <span class="">Recommended dimensions:</span>
+                                                                <span class="mx-5 px-3 justify-content-left">  900px by 400px</span>
+                                                            </div>
                                                         </div>
                                                         
+                                                    </form>
+                                                    <div>
+                                                        
                                                     </div>
+                                                    
+                                                </div>
                                                 </b-tab>
                                             </b-tabs>
                                             <button type="button" class="btn-close position-absolute" data-bs-dismiss="modal" aria-label="Close"></button>
